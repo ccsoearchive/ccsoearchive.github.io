@@ -1,0 +1,2549 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" class="en-us">
+<head xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="imagetoolbar" content="false" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>6.2.4 Lua API Changes - Forums - World of Warcraft</title>
+<link rel="shortcut icon" href="http://us.battle.net/wow/static/images/meta/favicon.ico?v=58-105" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://us.battle.net/en-us/data/opensearch" title="Battle.net Search" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/local-common/css/common-game-site.css?v=58-105" />
+<link title="World of Warcraft® - News" href="http://us.battle.net/wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/nav-client/nav-client-desktop.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/lightbox.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/forum-overlay/css/build/forum.min.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/forums-index.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/view-forum.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/view-topic.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/blizz-tracker.css?v=105" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie.css?v=105" />
+<![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie6.css?v=105" />
+<![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie7.css?v=105" />
+<![endif]-->
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/third-party.js?v=58-105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common-game-site.js?v=58-105"></script>
+<!--[if IE 6]> <script type="text/javascript">
+//<![CDATA[
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+var Core = Core || {},
+Login = Login || {};
+Core.staticUrl = '/wow/static';
+Core.sharedStaticUrl = '/wow/static/local-common';
+Core.baseUrl = '/wow/en';
+Core.projectUrl = '/wow';
+Core.cdnUrl = 'http://media.blizzard.com';
+Core.supportUrl = 'http://us.battle.net/support/';
+Core.secureSupportUrl = 'https://us.battle.net/support/';
+Core.project = 'wow';
+Core.locale = 'en-us';
+Core.language = 'en';
+Core.region = 'us';
+Core.shortDateFormat = 'MM/dd/yyyy';
+Core.dateTimeFormat = 'MM/dd/yyyy hh:mm a';
+Core.loggedIn = false;
+Core.userAgent = 'web';
+Login.embeddedUrl = 'https://us.battle.net/login/login.frag';
+var Flash = Flash || {};
+Flash.videoPlayer = 'http://media.blizzard.com/global-video-player/themes/wow/video-player.swf';
+Flash.videoBase = 'http://media.blizzard.com/wow/media/videos';
+Flash.ratingImage = 'http://media.blizzard.com/global-video-player/ratings/wow/en-us.jpg';
+Flash.expressInstall = 'http://media.blizzard.com/global-video-player/expressInstall.swf';
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-544112-16']);
+_gaq.push(['_setDomainName', '.battle.net']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+//]]>
+</script>
+<meta property="fb:app_id" content="175314325675" />
+<meta property="og:site_name" content="World of Warcraft" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://us.battle.net/wow/en/forum/topic/20742784697" />
+<meta property="og:image" content="http://media.blizzard.com/battle.net/logos/og-wow.png" />
+<meta property="og:image" content="http://media.blizzard.com/battle.net/logos/og-blizzard.png" />
+<meta property="og:title" content="6.2.4 Lua API Changes" />
+<meta property="og:description" content="In the upcoming Patch 6.2.4, we&#39;re moving to a new Battle.net infrastructure. There are changes to many of the Battle.net-related Lua APIs, including Battle.net friends and Battle.net chat. If you maintain an AddOn that makes use of those features, you may want to log in to the PTR and test that your AddOn st" />
+<link rel="canonical" href="index.html" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/legal/ratings.css?v=58-105" />
+</head>
+<body class="en-us forums view-topic">
+<script>
+//<![CDATA[
+var dataLayer = [{
+"authenticated": "0" }];
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!="dataLayer"?"&amp;l="+l:"";j.async=true;j.src=
+"//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})
+(window,document,"script","dataLayer","GTM-M39SFZ");
+//]]>
+</script>
+<div id="nav-client-header" class="nav-client compact">
+<div id="nav-client-bar">
+<div class="grid-container nav-header-content">
+<ul class="nav-list nav-left" id="nav-client-main-menu">
+<li>
+<a id="nav-client-home" class="nav-item nav-home" href="http://us.battle.net/" data-analytics="global-nav" data-analytics-placement="Nav - Battle.net Icon"></a>
+</li>
+<li>
+<div class="dropdown games">
+<a class="dropdown-toggle nav-link needsclick active" data-toggle="dropdown">
+Games
+<b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<ul class="nav-product-card-container games-menu" role="menu">
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/wow/" data-analytics="global-nav" data-analytics-placement="Nav - Games - World of Warcraft"><i class="nav-icon-wow"></i>World of Warcraft®</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/d3/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Diablo III"><i class="nav-icon-d3"></i>Diablo® III</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/sc2/" data-analytics="global-nav" data-analytics-placement="Nav - Games - StarCraft II"><i class="nav-icon-sc2"></i>StarCraft® II</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/hearthstone/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Hearthstone"><i class="nav-icon-hearthstone"></i>Hearthstone®</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/heroes/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Heroes of the Storm"><i class="nav-icon-heroes"></i>Heroes of the Storm™</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/overwatch/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Overwatch"><i class="nav-icon-overwatch"></i>Overwatch™</a>
+</li>
+</ul>
+<div class="dropdown-well dropdown-section download-btn">
+<a class="nav-item nav-a nav-item-box" href="http://us.battle.net/games/classic" data-analytics="global-nav" data-analytics-placement="Nav - Games - Classic Games"><i class="nav-icon-24-blue nav-icon-mouse"></i>Classic Games</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a id="nav-client-shop" class="nav-item nav-link needsclick" href="https://us.battle.net/shop/" data-analytics="global-nav" data-analytics-placement="Nav - Shop">Shop</a>
+</li>
+</ul>
+<ul class="nav-list nav-right" id="nav-client-account-menu">
+<li>
+<div id="username">
+<div class="dropdown pull-right">
+<a class="nav-link username username--loggedout needsclick dropdown-toggle" data-toggle="dropdown" rel="navbar">
+Your account
+<b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<div class="arrow top"></div>
+<div class="user-profile">
+<div class="dropdown-section">
+<div class="nav-box">
+<a class="nav-item nav-btn nav-btn-block nav-login-btn" href="index-login.html" data-analytics="global-nav" data-analytics-placement="Nav - Account - Log In">Log In</a>
+</div>
+</div>
+<div class="dropdown-section">
+<ul class="nav-list">
+<li>
+<a class="nav-item nav-a nav-item-box" href="http://us.battle.net/account/management/" data-analytics="global-nav" data-analytics-placement="Nav - Account - Settings"><i class="nav-icon-24-blue nav-icon-character-cog"></i>Account Settings</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a id="nav-client-support-link" class="nav-item nav-link needsclick" href="http://us.battle.net/support/" data-analytics="global-nav" data-analytics-placement="Nav - Support"> Support </a>
+</li>
+<li>
+<div class="nav-notification-icon">
+<a class="dropdown-toggle needsclick nav-item" rel="navbar">
+<i class="needsclick nav-icon-bell"></i>
+</a>
+<div class="nav-notification-dropdown dropdown-menu">
+<div class="arrow top"></div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-notification-responsive-container">
+<div class="nav-notification-dropdown dropdown-menu">
+<div class="arrow top"></div>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div id="header">
+<div class="search-bar">
+<form action="/wow/en/search" method="get" autocomplete="off">
+<div>
+<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="Search characters, items, forums and more…" value="Search characters, items, forums and more…" />
+<input type="submit" class="search-button" value="" tabindex="41" />
+</div>
+</form>
+</div>
+<h1 id="logo"><a href="http://us.battle.net/wow/en/">World of Warcraft®</a></h1>
+<div class="header-plate">
+<ul class="menu" id="menu">
+<li class="menu-home" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/">
+<span itemprop="name">Home</span>
+</a>
+</li>
+<li class="menu-game" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/game/">
+<span itemprop="name">Game Guide</span>
+</a>
+</li>
+<li class="menu-community" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/community/">
+<span itemprop="name">Community</span>
+</a>
+</li>
+<li class="menu-media" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/media/">
+<span itemprop="name">Media</span>
+</a>
+</li>
+<li class="menu-forums" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/forum/" class="menu-active">
+<span itemprop="name">Forums</span>
+</a>
+</li>
+<li class="menu-services" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/shop/">
+<span itemprop="name">Shop</span>
+</a>
+</li>
+</ul>
+<div class="user-plate">
+<a href="index-login.html" class="card-character plate-logged-out" onclick="return Login.open('https://us.battle.net/login/login.frag');">
+<span class="card-portrait"></span>
+<span class="wow-login-key"></span>
+<span class="login-msg"><strong>Log in now</strong> to enhance and personalize your experience!</span>
+</a>
+</div>
+</div>
+<div class="new-feature-tip" id="feature-tip" style="display: none">
+<a href="http://us.battle.net/wow/en/zone/" data-label="World of Warcraft Game Guide" class="clickable">
+<span class="title">FEATURE UPDATED!</span>
+<strong>Scenarios </strong>
+<span class="desc">Check out our new guide pages with detailed information about the new Mists of Pandaria scenarios!</span>
+</a>
+<a href="javascript:;" class="close" rel="close" data-label="Close"></a>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Core.showUntilClosed('#feature-tip', 'mop.talent.calculator', {
+startDate: '2012/11/28',
+endDate: '2012/12/04',
+cookieParams: { expires: 720 }
+});
+//]]>
+</script>
+</div>
+<div id="content">
+<div class="content-top body-top">
+<div class="content-trail">
+<ol class="ui-breadcrumb">
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">World of Warcraft</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Forums</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/#forum1011643" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Gameplay and Guides</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/1011693/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">UI and Macro</span>
+</a>
+</li>
+<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="index.html" rel="np" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">6.2.4 Lua API Changes</span>
+</a>
+</li>
+</ol>
+</div>
+<div class="content-bot clear">
+	<div class="forum-wrapper" data-forum-id="1011693">
+		<div class="topic-header-wrapper">
+			<div class="topic-header">
+
+
+
+	<h2 class="subheader-2" >					
+					<span class="topic-title">6.2.4 Lua API Changes</span>
+</h2>
+
+
+
+
+	<h3 class="subheader-3" >						<span class="topic-status">(Sticky)</span>
+</h3>
+
+				<div class="topic-status-buttons">
+
+		<a class="next-blizz-post" href="index.html#1" data-tooltip="Jump to first Blizzard Post"></a>
+				</div>
+
+			</div>
+		</div>
+	<span class="clear"><!-- --></span>
+
+
+		<div class="forum-actions forum-actions-top">
+
+			<div class="actions-right">
+
+
+
+
+
+
+
+
+<ul class="ui-pagination"><li class="current"><a href="index-page=1.html" data-pagenum="1"><span>1</span></a></li><li><a href="index-page=2.html" data-pagenum="2"><span>2</span></a></li><li class="cap-item"><a class="page-next" href="index-page=2.html" data-pagenum="2"><span>Next</span></a></li></ul>			</div>
+
+
+
+
+
+
+	<div class="reply-button-wrapper ajax-update">
+
+<a class="ui-button button1" href="index-login.html"
+onclick="return Login.open();"><span class="button-left"><span class="button-right"> Add a reply
+</span></span></a>
+
+	</div>
+
+
+	<span class="clear"><!-- --></span>
+		</div>
+
+
+		<div id="post-list" class="post-list">
+
+<div id="post-207408081888" class="topic-post post-1 blizzard ajax-update" data-post-id="207408081888">
+<span id="1"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="javascript:;">
+<img height="64" width="64" src="http://bnetcmsus-a.akamaihd.net/cms/user_avatar/6YC7XF8K5HZO1357245003449.gif" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-1" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Rygarius</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/search?f=post&a=Rygarius&sort=time" title="View posts" rel="np"
+class="icon-posts link-first link-last"
+>
+<span class="context-icon"></span>View posts
+</a>
+</div>
+</div>
+</div>
+<a href="javascript:;" itemprop="url" class="context-link ">
+<span itemprop="name" class="poster-name">Rygarius</span>
+</a>
+</div>
+<div class="forum-title admin-title" itemprop="jobTitle">
+Community Manager
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+In the upcoming Patch 6.2.4, we're moving to a new Battle.net infrastructure. There are changes to many of the Battle.net-related Lua APIs, including Battle.net friends and Battle.net chat. If you maintain an AddOn that makes use of those features, you may want to log in to the PTR and test that your AddOn still functions correctly. To help AddOn authors troubleshoot potential compatibility issues, we’ve highlighted a few of the big changes to help direct you to areas that may need your attention.<br/><br/><span class="underline"><strong>Conversations</strong></span><br/>Support for conversations has been removed. This includes all C-functions (BNCreateConversation, BNGetConversationInfo, etc.) as well as all Lua/XML references to conversations.<br/><br/><span class="underline"><strong>Toons</strong></span><br/>The new Battle.net architecture doesn’t have the concept of “Toons”. Instead, we refer to “GameAccounts”. As a result, many functions with “Toon” in the name now refer to “GameAccount”<br/><em>Examples:</em><br/><code>BNGetToonInfo -> BNGetGameAccountInfo<br/>BNGetFriendToonInfo -> BNGetFriendGameAccountInfo<br/>BNGetNumFriendToons -> BNGetNumFriendGameAccounts</code><br/><span class="underline"><strong>Presence IDs</strong></span><br/>Previously, “Presence IDs” could refer to either Battle.net accounts or individual toons. Most functions were able to accept either type of presence ID and, when passed the wrong type, tried to guess at what you were trying to do.<br/><br/>Presence IDs have been replaced with bnetIDAccount and bnetIDGameAccount. With this change, we’ve made all functions strict about whether they accept Account IDs or Game Account IDs. In order to make this easier, all Lua variables have been updated to specify which type of ID they are.<br/><br/>You can translate from a bnetIDGameAccount to a bnetIDAccount as follows:<br/><code>bnetIDAccount = select(17, BNGetGameAccountInfo(bnetIDGameAccount));</code><br/>You can find a player’s active bnetIDGameAccount from a bnetIDAccount as follows:<br/><code>bnetIDGameAccount = select(6, BNGetFriendInfoByID(bnetIDAccount));</code><br/><span class="underline"><strong>Current Realm Name</strong></span><br/>The “realmName” CVar no longer exists. You can get the name of the current realm using GetRealmName().
+</div>
+<div class="post-edited">
+Edited by Rygarius on 3/2/2016 4:21 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#1">
+#1
+</a>
+<div class="date" data-tooltip="3/2/2016 12:13 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T12:13:07-08" />
+<meta itemprop="dateModified" content="2016-03-02T16:21:53-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<a class="next-blizz-post" href="index.html#5" data-tooltip="Next Blizzard Post"></a>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408081888'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407481974" class="topic-post post-2 ajax-update" data-post-id="207407481974">
+<span id="2"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/theradras/162/110712482-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-2" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Bor</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Bor@Wyrmrest%20Accord&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 5482053, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" itemprop="url" class="context-link wow-class-3">
+<span itemprop="name" class="poster-name">Bor</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-3">
+100 Dwarf Hunter
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/wyrmrest-accord/Resolve/">Resolve</a>
+</div>
+<div class="achievements">23555</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207408081888" class="quote-blizzard"><div><span class="bml-quote-date">03/02/2016 12:13 PM</span>Posted by <a href="index-page=1.html#1">Rygarius</a></div>Presence IDs have been replaced with bnetIDAccount and bnetIDGameAccount. With this change, we’ve made all functions strict about whether they accept Account IDs or Game Account IDs.</blockquote><br/>Do places that previously provided toon presence IDs now guarantee providing a game account ID? I'm specifically thinking of things like the arguments provided to the BN_CHAT_MSG_ADDON event handlers, as it's very useful to tie such in-game sent data to a specific game account source.<br/><br/><blockquote data-quote="207408081888" class="quote-blizzard"><div><span class="bml-quote-date">03/02/2016 12:13 PM</span>Posted by <a href="index-page=1.html#1">Rygarius</a></div>The new Battle.net architecture doesn’t have the concept of “Toons”. Instead, we refer to “GameAccounts”.</blockquote><br/>Does this include events? Are BN_TOON_NAME_UPDATED, BN_FRIEND_TOON_ONLINE, BN_FRIEND_TOON_OFFLINE all renamed to BN_GAME_ACCOUNT_NAME_UPDATED, BN_FRIEND_GAME_ACCOUNT_ONLINE, BN_FRIEND_GAME_ACCOUNT_OFFLINE respectively?<br/><br/>I'll be making some tests later on the PTR to see whether the TOON events still register for frames properly, but it'd be nice to have it confirmed one way or the other.<br/><br/><blockquote data-quote="207408081888" class="quote-blizzard"><div><span class="bml-quote-date">03/02/2016 12:13 PM</span>Posted by <a href="index-page=1.html#1">Rygarius</a></div>The “realmName” CVar no longer exists. You can get the name of the current realm using CurrentRealmName().</blockquote><br/>Do you mean GetRealmName(), the already-existing function? Or is this a new function that can (or must?) replace GetRealmName()?
+</div>
+<div class="post-edited">
+Edited by Bor on 3/2/2016 2:13 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#2">
+#2
+</a>
+<div class="date" data-tooltip="3/2/2016 2:11 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T14:11:23-08" />
+<meta itemprop="dateModified" content="2016-03-02T14:13:08-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407481974'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407582408" class="topic-post post-3 ajax-update" data-post-id="207407582408">
+<span id="3"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3661/17/113881617-avatar.jpg?alt=wow/static/images/2d/avatar/7-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-3" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Gello</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Gello@Hyjal&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 530825, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" itemprop="url" class="context-link wow-class-5">
+<span itemprop="name" class="poster-name">Gello</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-5">
+100 Gnome Priest
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/hyjal/Underhill/">Underhill</a>
+</div>
+<div class="achievements">16275</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Thank you for posting this.<br/><br/>Any other posts about API changes/additions would be a tremendous help to the addon community. Even just a technical overview of new systems like the coming nameplate overhaul or new drawing methods.<br/><br/>If it can become a bullet point for discussion with the UI team: do you guys think it's possible for Blizzard to help document the API even further? As we progress into further and further expansions, the community effort to document additions and changes lessens. wowpedia's "exhaustive list" API is still from 5.4 and doesn't include C_ToyBox, C_MountJournal and such. wowprogramming has them mentioned but with sparse documentation. This is of course the community's fault but a little boost may help re-invigorate the documenting efforts.<br/><br/>Alternately, do you think the UI &amp; Macro forum could get a replacement for Slouken? He was a huge help in answering technical questions and explaining things. A new UI &amp; Macro forum blue may bring back the experienced addon authors who have drifted off to other forums or no longer post.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#3">
+#3
+</a>
+<div class="date" data-tooltip="3/2/2016 2:24 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T14:24:18-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="post-rating">
++4
+</div>
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407582408'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207409281764" class="topic-post post-4 mvp ajax-update" data-post-id="207409281764">
+<span id="4"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/whisperwind/Omegal/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/whisperwind/36/56601380-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-4" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Omegal</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/whisperwind/Omegal/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Omegal@Whisperwind&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 369235, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/whisperwind/Omegal/" itemprop="url" class="context-link mvp-user wow-class-1">
+<span itemprop="name" class="poster-name">Omegal</span>
+</a>
+</div>
+<div class="user-character">
+<div class="forum-title mvp-title" itemprop="jobTitle">MVP - Technical Support</div>
+<div class="character-desc">
+<span class="wow-class-1">
+100 Human Warrior
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/whisperwind/Something%20Wicked/">Something Wicked</a>
+</div>
+<div class="achievements">22125</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Another change i noticed, any function that returned btag now only returns string and strips # and numbers. This is actually somewhat problematic for the way I store conversation history in WoW instant Messenger. On live I can store Adam#1234 and Adam#4321 separately but in 6.2.4 Both will simply be "Adam" and wim won't know one from other and the history for both wlll be combined. :\<br/><br/>I can't imagine what reason you strip the number from battletag in these functions but can that be changed?<br/><br/>BNGetFriendInfo (BNGetFriendInfoByID in 6.2.4)<br/><br/>Or any other function that returns btag<br/><br/>Bor, it's kind of silly on addon end now to separate game and toon info. You basically have to do additional calls now.<br/><br/>For example in WIM I had to do this<br/><br/>Live<br/><code> local pid = BNet_GetPresenceID(from)<br/> if pid then<br/> local _, _, btag, _, toonName = _G.BNGetFriendInfoByID(pid)<br/> from = btag or toonName or from<br/> end</code><br/><br/>Legion/6.2.4<br/><code> local pid = BNet_GetPresenceID(from)<br/> if pid then<br/> local gameId = _G.BNet_GetBNetIDGameAccount(from)<br/> local _, _, btag, _, toonName = _G.BNGetFriendInfoByID(gameId)<br/> from = btag or toonName or from<br/> end</code><br/><br/>Another thing, BNGetToonInfo always requires gameid, not presenceID (which it currently accepts on live), which means you often find yourself having to request both pid and gameid. You basically have to play it by ear until you're used to what needs pid and what needs gameid. compared to live which lets pretty much everything use pid.
+</div>
+<div class="post-edited">
+Edited by Omegal on 3/2/2016 3:08 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#4">
+#4
+</a>
+<div class="date" data-tooltip="3/2/2016 2:34 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T14:34:09-08" />
+<meta itemprop="dateModified" content="2016-03-02T15:08:51-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207409281764'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407082190" class="topic-post post-5 blizzard ajax-update" data-post-id="207407082190">
+<span id="5"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="javascript:;">
+<img height="64" width="64" src="http://bnetcmsus-a.akamaihd.net/cms/user_avatar/6YC7XF8K5HZO1357245003449.gif" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-5" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Rygarius</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/search?f=post&a=Rygarius&sort=time" title="View posts" rel="np"
+class="icon-posts link-first link-last"
+>
+<span class="context-icon"></span>View posts
+</a>
+</div>
+</div>
+</div>
+<a href="javascript:;" itemprop="url" class="context-link ">
+<span itemprop="name" class="poster-name">Rygarius</span>
+</a>
+</div>
+<div class="forum-title admin-title" itemprop="jobTitle">
+Community Manager
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207407481974" class="quote-public"><div><span class="bml-quote-date">03/02/2016 02:11 PM</span>Posted by <a href="index-page=1.html#2">Bor</a></div><blockquote>The “realmName” CVar no longer exists. You can get the name of the current realm using CurrentRealmName().</blockquote><br/>Do you mean GetRealmName(), the already-existing function? Or is this a new function that can (or must?) replace GetRealmName()?</blockquote><br/>The "realmName" CVar is no longer there, but the function to get the name of the current realm is still GetRealmName. Correction made to the post, thanks for asking.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#5">
+#5
+</a>
+<div class="date" data-tooltip="3/2/2016 4:25 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T16:25:11-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<a class="next-blizz-post" href="index.html#13" data-tooltip="Next Blizzard Post"></a>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407082190'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407181797" class="topic-post post-6 ajax-update" data-post-id="207407181797">
+<span id="6"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/stormrage/Thatguybud/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/stormrage/77/161149517-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-6" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Thatguybud</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/stormrage/Thatguybud/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Thatguybud@Stormrage&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 6126127, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/stormrage/Thatguybud/" itemprop="url" class="context-link wow-class-7">
+<span itemprop="name" class="poster-name">Thatguybud</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-7">
+100 Dwarf Shaman
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/stormrage/Buffshamans/">Buffshamans</a>
+</div>
+<div class="achievements">13375</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Are we going to get the long awaited appear offline mode in this new Battle.net infrastructure
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#6">
+#6
+</a>
+<div class="date" data-tooltip="3/2/2016 4:38 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T16:38:45-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="post-rating">
++8
+</div>
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407181797'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207408581773" class="topic-post post-7 ajax-update" data-post-id="207408581773">
+<span id="7"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Kordrion/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/naxxramas/245/107254261-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-7" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Kordrion</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Kordrion/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Kordrion@Cenarion%20Circle&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 292775, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Kordrion/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Kordrion</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/cenarion-circle/Terra%20Incognita/">Terra Incognita</a>
+</div>
+<div class="achievements">20045</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+-Nevermind! reading comprehension, it's a thing.-
+</div>
+<div class="post-edited">
+Edited by Kordrion on 3/2/2016 5:50 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#7">
+#7
+</a>
+<div class="date" data-tooltip="3/2/2016 5:22 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T17:22:43-08" />
+<meta itemprop="dateModified" content="2016-03-02T17:50:40-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408581773'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407781911" class="topic-post post-8 ajax-update" data-post-id="207407781911">
+<span id="8"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/theradras/162/110712482-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-8" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Bor</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Bor@Wyrmrest%20Accord&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 5482053, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" itemprop="url" class="context-link wow-class-3">
+<span itemprop="name" class="poster-name">Bor</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-3">
+100 Dwarf Hunter
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/wyrmrest-accord/Resolve/">Resolve</a>
+</div>
+<div class="achievements">23555</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>I'll be making some tests later on the PTR to see whether the TOON events still register for frames properly, but it'd be nice to have it confirmed one way or the other.</blockquote><br/>I've now checked, and so far the BN TOON events have <strong>not</strong> been renamed. The TOON events still register, and replacing TOON with GAME_ACCOUNT (or GAMEACCOUNT) does not register.<br/><br/>Rygarius, is this going to stay this way to live (and beyond), or are we going to have to also change events for a future build?
+</div>
+<div class="post-edited">
+Edited by Bor on 3/2/2016 9:41 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#8">
+#8
+</a>
+<div class="date" data-tooltip="3/2/2016 9:39 PM PST">3/2/2016</div>
+<meta itemprop="dateCreated" content="2016-03-02T21:39:56-08" />
+<meta itemprop="dateModified" content="2016-03-02T21:41:38-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407781911'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207406982560" class="topic-post post-9 ajax-update" data-post-id="207406982560">
+<span id="9"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/amanthul/Aehl/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/amanthul/200/160197064-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-9" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Aehl</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/amanthul/Aehl/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Aehl@Aman'Thul&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 11774414, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/amanthul/Aehl/" itemprop="url" class="context-link wow-class-9">
+<span itemprop="name" class="poster-name">Aehl</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-9">
+100 Human Warlock
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/amanthul/Dominus%20De%20Caleo/">Dominus De Caleo</a>
+</div>
+<div class="achievements">12780</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+When do we get appear offline for <br/><br/>Starcraft<br/>Diablo<br/>Overwatch<br/>HoTs<br/>Hearthstone
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#9">
+#9
+</a>
+<div class="date" data-tooltip="3/3/2016 12:39 AM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T00:39:18-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207406982560'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407182187" class="topic-post post-10 ajax-update" data-post-id="207407182187">
+<span id="10"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/moon-guard/Kisara/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3675/119/120326263-avatar.jpg?alt=wow/static/images/2d/avatar/4-1.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-10" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Kisara</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/moon-guard/Kisara/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Kisara@Moon%20Guard&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 12216204, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/moon-guard/Kisara/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Kisara</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Night Elf Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/moon-guard/Kaldorei%20Kingdom/">Kaldorei Kingdom</a>
+</div>
+<div class="achievements">4700</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+What's going on with BNGetFriendInfo()? The third return value used to give a BattleTag for the player, now if I dump BNGetFriendInfo() I get something like this...<br/><br/>Dump: value=BNGetFriendInfo(1);<br/>[1]=6,<br/>[2]="|Kf4|k00000|k",<br/>[3]="|Kf4|k00000|k", <strong>&lt;== Battletag used to be here.</strong><br/>etc<br/>etc<br/><br/>Is this intentional?
+</div>
+<div class="post-edited">
+Edited by Kisara on 3/3/2016 3:23 AM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#10">
+#10
+</a>
+<div class="date" data-tooltip="3/3/2016 3:16 AM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T03:16:14-08" />
+<meta itemprop="dateModified" content="2016-03-03T03:23:55-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407182187'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207408382190" class="topic-post post-11 ajax-update" data-post-id="207408382190">
+<span id="11"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3661/17/113881617-avatar.jpg?alt=wow/static/images/2d/avatar/7-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-11" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Gello</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Gello@Hyjal&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 530825, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" itemprop="url" class="context-link wow-class-5">
+<span itemprop="name" class="poster-name">Gello</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-5">
+100 Gnome Priest
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/hyjal/Underhill/">Underhill</a>
+</div>
+<div class="achievements">16275</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Has anyone succesfully sent a BNSendGameData on the PTR? I've not had any success.<br/><code>local accountID = BNet_GetBNetIDAccount("Name")<br/>local gameID = select(6,BNGetFriendInfoByID(accountID))<br/><br/>BNSendGameData(gameID,"Prefix","test")</code><br/>Where "Name" is the battletag (minus the "#number") and "Prefix" is the prefix registered on both clients.<br/>Using accountID it's throwing a usage error to use the "game account presence id".<br/>Using gameID throws no error but there's no event firing on the recipient side.<br/><br/>The traditional SendAddonMessage is working fine.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#11">
+#11
+</a>
+<div class="date" data-tooltip="3/3/2016 7:07 AM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T07:07:20-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408382190'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207409082888" class="topic-post post-12 ajax-update" data-post-id="207409082888">
+<span id="12"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/theradras/162/110712482-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-12" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Bor</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Bor@Wyrmrest%20Accord&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 5482053, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" itemprop="url" class="context-link wow-class-3">
+<span itemprop="name" class="poster-name">Bor</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-3">
+100 Dwarf Hunter
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/wyrmrest-accord/Resolve/">Resolve</a>
+</div>
+<div class="achievements">23555</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207408382190" class="quote-public"><div><span class="bml-quote-date">03/03/2016 07:07 AM</span>Posted by <a href="index-page=1.html#11">Gello</a></div>Has anyone succesfully sent a BNSendGameData on the PTR? I've not had any success.</blockquote><br/>I haven't tested it (I don't have anyone on my Btag on PTR), but have you checked which game account ID you're getting from BNGetFriendInfoByID()?<br/><br/>At least on live, there's a separate toon ID for the Battle.net desktop client -- I'm not sure if the same is true on PTR or not. Checking the output of BNGetGameAccountInfo() might help; if the third return value is "WoW", then it's definitely getting the proper game account ID. If it's "App" (or pretty much anything else), then it's not and you might have to iterate through BNGetFriendGameAccountInfo() to find the correct one.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#12">
+#12
+</a>
+<div class="date" data-tooltip="3/3/2016 11:51 AM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T11:51:47-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207409082888'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207408582505" class="topic-post post-13 blizzard ajax-update" data-post-id="207408582505">
+<span id="13"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="javascript:;">
+<img height="64" width="64" src="http://bnetcmsus-a.akamaihd.net/cms/user_avatar/6YC7XF8K5HZO1357245003449.gif" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-13" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Rygarius</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/search?f=post&a=Rygarius&sort=time" title="View posts" rel="np"
+class="icon-posts link-first link-last"
+>
+<span class="context-icon"></span>View posts
+</a>
+</div>
+</div>
+</div>
+<a href="javascript:;" itemprop="url" class="context-link ">
+<span itemprop="name" class="poster-name">Rygarius</span>
+</a>
+</div>
+<div class="forum-title admin-title" itemprop="jobTitle">
+Community Manager
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>Do places that previously provided toon presence IDs now guarantee providing a game account ID? I'm specifically thinking of things like the arguments provided to the BN_CHAT_MSG_ADDON event handlers, as it's very useful to tie such in-game sent data to a specific game account source.</blockquote><br/>Yes, BN_CHAT_MSG_ADDON is now guaranteed to give a bnetIDGameAccount. All other chat events will provide a bnetIDAccount.<br/><br/><blockquote>Does this include events? Are BN_TOON_NAME_UPDATED, BN_FRIEND_TOON_ONLINE, BN_FRIEND_TOON_OFFLINE all renamed to BN_GAME_ACCOUNT_NAME_UPDATED, BN_FRIEND_GAME_ACCOUNT_ONLINE, BN_FRIEND_GAME_ACCOUNT_OFFLINE respectively?</blockquote><br/>These events are no longer used. BN_FRIEND_INFO_CHANGED will fire for changes to both account and game-account data.<br/><br/><blockquote data-quote="207409281764" class="quote-mvp"><div><span class="bml-quote-date">03/02/2016 02:34 PM</span>Posted by <a href="index-page=1.html#4">Omegal</a></div>Another change i noticed, any function that returned btag now only returns string and strips # and numbers.</blockquote><br/>Thanks for the heads-up! This should be fixed in a coming build to work the same way that it does on live.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#13">
+#13
+</a>
+<div class="date" data-tooltip="3/3/2016 12:01 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T12:01:08-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<a class="next-blizz-post" href="index.html#18" data-tooltip="Next Blizzard Post"></a>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408582505'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407083032" class="topic-post post-14 ajax-update" data-post-id="207407083032">
+<span id="14"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/stormrage/Galvin/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/stormrage/178/3169970-avatar.jpg?alt=wow/static/images/2d/avatar/4-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-14" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Galvin</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/stormrage/Galvin/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Galvin@Stormrage&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 149159, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/stormrage/Galvin/" itemprop="url" class="context-link wow-class-1">
+<span itemprop="name" class="poster-name">Galvin</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-1">
+100 Night Elf Warrior
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/stormrage/Death%20Jesters/">Death Jesters</a>
+</div>
+<div class="achievements">21950</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+What do I need to change in this code?<br/><code><br/>function GWL:CHAT_MSG_BN_WHISPER(Event, Message, Sender, p4, p5, p6, p7, p8, p9, p10, LineID, p12, p13, PresenceID)<br/> local Command, Args = strsplit(' ', strlower(Message), 3)<br/><br/> if Command ~= WaitListWhisperCommand then<br/> return<br/> end<br/><br/> local ToonID, Client = select(6, BNGetFriendInfoByID(PresenceID))<br/><br/> if Client ~= 'WoW' then<br/> BNSendWhisper(PresenceID, ModName .. 'Must be in WoW to send command')<br/> else<br/> local _, ToonName, Client, RealmName = BNGetToonInfo(ToonID)<br/><br/> if RealmName ~= GetRealmName() then<br/> BNSendWhisper(PresenceID, ModName .. 'Must be on same realm as the queue leader')<br/> else<br/> local Msg = DoCommand(Args, ToonName)<br/><br/> if Msg then<br/> BNSendWhisper(PresenceID, ModName .. Msg)<br/> end<br/> end<br/> end<br/>end<br/></code>
+</div>
+<div class="post-edited">
+Edited by Galvin on 3/6/2016 7:34 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#14">
+#14
+</a>
+<div class="date" data-tooltip="3/3/2016 1:30 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T13:30:39-08" />
+<meta itemprop="dateModified" content="2016-03-06T19:34:56-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407083032'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207408582657" class="topic-post post-15 ajax-update" data-post-id="207408582657">
+<span id="15"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3661/17/113881617-avatar.jpg?alt=wow/static/images/2d/avatar/7-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-15" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Gello</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Gello@Hyjal&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 530825, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" itemprop="url" class="context-link wow-class-5">
+<span itemprop="name" class="poster-name">Gello</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-5">
+100 Gnome Priest
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/hyjal/Underhill/">Underhill</a>
+</div>
+<div class="achievements">16275</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207407083032" class="quote-public"><div><span class="bml-quote-date">03/03/2016 01:30 PM</span>Posted by <a href="index-page=1.html#14">Galvin</a></div>What do I need to change in this code?</blockquote><br/>Something like this:<br/><code>function function GWL:CHAT_MSG_BN_WHISPER(event,...)<br/><br/> local message = select(1,...)<br/><br/> local Command, Args = strsplit(' ', strlower(message), 3)<br/><br/> if Command ~= WaitListWhisperCommand then<br/> return<br/> end<br/><br/> local bnetIDAccount = select(13,...)<br/> local bnetIDGameAccount = select(6,BNGetFriendInfoByID(bnetIDAccount))<br/> local _,toonName, client, realmName = BNGetGameAccountInfo(bnetIDGameAccount)<br/><br/> if client ~= 'WoW' then<br/> BNSendWhisper(bnetIDAccount, ModName .. 'Must be in WoW to send command')<br/> else<br/> if realmName ~= GetRealmName() then<br/> BNSendWhisper(bnetIDAccount, ModName .. 'Must be on same realm as the queue leader')<br/> else<br/> local Msg = DoCommand(Args, toonName)<br/> if Msg then<br/> BNSendWhisper(bnetIDAccount, ModName .. Msg)<br/> end<br/> end<br/> end<br/>end</code><br/><br/>However, BNGetGameAccountInfo is "Anasterian(US)" and the GetRealmName is "Anasterian (US)" so they'll always be unequal. I don't know if this is PTR specific or not. Could be.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#15">
+#15
+</a>
+<div class="date" data-tooltip="3/3/2016 2:41 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T14:41:49-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408582657'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207409282573" class="topic-post post-16 ajax-update" data-post-id="207409282573">
+<span id="16"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3661/17/113881617-avatar.jpg?alt=wow/static/images/2d/avatar/7-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-16" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Gello</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Gello@Hyjal&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 530825, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/hyjal/Gello/" itemprop="url" class="context-link wow-class-5">
+<span itemprop="name" class="poster-name">Gello</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-5">
+100 Gnome Priest
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/hyjal/Underhill/">Underhill</a>
+</div>
+<div class="achievements">16275</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207409082888" class="quote-public"><div><span class="bml-quote-date">03/03/2016 11:51 AM</span>Posted by <a href="index-page=1.html#12">Bor</a></div>I haven't tested it (I don't have anyone on my Btag on PTR), but have you checked which game account ID you're getting from BNGetFriendInfoByID()?</blockquote><br/>Here's some dumps from one separate account that's entirely separate (different email/login, absolutely no ties to the other account other than they are bnet friends) with one bnet friend logged in (my main account):<br/><code>Dump: value=BNGetNumFriends()<br/>[1]=1,<br/>[2]=1<br/>Dump: value=BNGetFriendInfo(1)<br/>[1]=2,<br/>[2]="|Kf1|k00000|k",<br/>[3]="|Kf1|k00000|k",<br/>[4]=true,<br/>[5]="Raor",<br/>[6]=3,<br/>[7]="WoW",<br/>[8]=true,<br/>[9]=1457039746,<br/>[10]=false,<br/>[11]=false,<br/>[12]="",<br/>[13]="",<br/>[14]=true,<br/>[15]=0,<br/>[16]=false,<br/>[17]=false,<br/>[18]=false,<br/>Dump: value=BNGetGameAccountInfo(3)<br/>[1]=true,<br/>[2]="Raor",<br/>[3]="WoW",<br/>[4]="Anasterian(US)",<br/>[5]=3296,<br/>[6]="Alliance",<br/>[7]="Worgen",<br/>[8]="Druid",<br/>[9]="",<br/>[10]="Moonglade",<br/>[11]="90",<br/>[12]="",<br/>[13]="",<br/>[14]=0,<br/>[15]=true,<br/>[16]=3,<br/>[17]=2,<br/>[18]=true,<br/>[19]=false<br/>Dump: value=BNGetFriendInfoByID(2)<br/>[1]=2,<br/>[2]="|Kf1|k00000|k",<br/>[3]="|Kf1|k00000|k",<br/>[4]=true,<br/>[5]="Raor",<br/>[6]=3,<br/>[7]="WoW",<br/>[8]=true,<br/>[9]=1457039746,<br/>[10]=false,<br/>[11]=false,<br/>[12]="",<br/>[13]="",<br/>[14]=true,<br/>[15]=0,<br/>[16]=false,<br/>[17]=false,<br/>[18]=false</code><br/><br/>This does not appear to trigger anything on the receiving end (Roar from the above data):<br/><code>BNSendGameData(3,"Rematch","test")</code><br/><br/>I have an /eventtrace running to watch for any event in case something other than BN_CHAT_MSG_ADDON is now firing. Nothing.<br/><br/>Any value other than 3 for the first parameter gets a usage error (which is nice that it's checking!):<br/><blockquote>Message: [string "..."]:13: Usage: BNSendGameData(id,prefix,text) id must be a game account presence id.</blockquote><br/><br/>This works flawlessly:<br/><code>SendAddonMessage("Rematch","test","WHISPER","Raor")</code><br/><br/>Both characters are on the same realm (Anasterian(US)) and same faction (Alliance). The sender is a level 1 in Gnomeregan, the recipient is a level 90 in Moonglade. The level 1 is a full account (trial accounts don't have full bnet access).<br/><br/>edit: created a level 100 template character as a sender and same behavior: nothing for BNSendGameData to the bnetIDGameAccount and an error trying to send to bnetIDAccount.<br/><br/>TL;DR: It seems BNSendGameData is not working. I'm more and more convinced that it's bugged. But maybe I'm missing something. If anyone's addon depends on BNSendGameData they may want to log onto the PTR and try too.
+</div>
+<div class="post-edited">
+Edited by Gello on 3/3/2016 2:55 PM PST
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#16">
+#16
+</a>
+<div class="date" data-tooltip="3/3/2016 2:44 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T14:44:44-08" />
+<meta itemprop="dateModified" content="2016-03-03T14:55:06-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207409282573'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207408582702" class="topic-post post-17 ajax-update" data-post-id="207408582702">
+<span id="17"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/theradras/162/110712482-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-17" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Bor</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Bor@Wyrmrest%20Accord&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 5482053, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" itemprop="url" class="context-link wow-class-3">
+<span itemprop="name" class="poster-name">Bor</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-3">
+100 Dwarf Hunter
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/wyrmrest-accord/Resolve/">Resolve</a>
+</div>
+<div class="achievements">23555</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207409282573" class="quote-public"><div><span class="bml-quote-date">03/03/2016 02:44 PM</span>Posted by <a href="index-page=1.html#16">Gello</a></div>It seems BNSendGameData is not working. I'm more and more convinced that it's bugged. But maybe I'm missing something.</blockquote><br/>As far as I can see, you're using it right and it's definitely getting the WoW game account ID. Since the SendAddonMessage() works, I'm assuming you did RegisterAddonMessagePrefix("Rematch"), which is the only other thing I can think of there.<br/><br/>From what I can see, it should be working. Best guess is that, yeah, there's some sort of bug going on there. Rygarius, is this a known issue? Or are there other changes that we need to account for with BNSendGameData()?
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#17">
+#17
+</a>
+<div class="date" data-tooltip="3/3/2016 3:37 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T15:37:23-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207408582702'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407982702" class="topic-post post-18 blizzard ajax-update" data-post-id="207407982702">
+<span id="18"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="javascript:;">
+<img height="64" width="64" src="http://bnetcmsus-a.akamaihd.net/cms/user_avatar/6YC7XF8K5HZO1357245003449.gif" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-18" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Rygarius</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/search?f=post&a=Rygarius&sort=time" title="View posts" rel="np"
+class="icon-posts link-first link-last"
+>
+<span class="context-icon"></span>View posts
+</a>
+</div>
+</div>
+</div>
+<a href="javascript:;" itemprop="url" class="context-link ">
+<span itemprop="name" class="poster-name">Rygarius</span>
+</a>
+</div>
+<div class="forum-title admin-title" itemprop="jobTitle">
+Community Manager
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207408582702" class="quote-public"><div><span class="bml-quote-date">03/03/2016 03:37 PM</span>Posted by <a href="index-page=1.html#17">Bor</a></div><blockquote data-quote="207409282573" class="quote-public"><div><span class="bml-quote-date">03/03/2016 02:44 PM</span>Posted by <a href="index-page=1.html#16">Gello</a></div>It seems BNSendGameData is not working. I'm more and more convinced that it's bugged. But maybe I'm missing something.</blockquote><br/>As far as I can see, you're using it right and it's definitely getting the WoW game account ID. Since the SendAddonMessage() works, I'm assuming you did RegisterAddonMessagePrefix("Rematch"), which is the only other thing I can think of there.<br/><br/>From what I can see, it should be working. Best guess is that, yeah, there's some sort of bug going on there. Rygarius, is this a known issue? Or are there other changes that we need to account for with BNSendGameData()?</blockquote><br/>We're aware of an issue with BNSendGameData() not working correctly in the current build. The issue has been tracked down and should be fixed in an upcoming PTR build.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#18">
+#18
+</a>
+<div class="date" data-tooltip="3/3/2016 5:29 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T17:29:07-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407982702'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407982769" class="topic-post post-19 ajax-update" data-post-id="207407982769">
+<span id="19"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/theradras/162/110712482-avatar.jpg?alt=wow/static/images/2d/avatar/3-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-19" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Bor</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Bor@Wyrmrest%20Accord&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 5482053, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/wyrmrest-accord/Bor/" itemprop="url" class="context-link wow-class-3">
+<span itemprop="name" class="poster-name">Bor</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-3">
+100 Dwarf Hunter
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/wyrmrest-accord/Resolve/">Resolve</a>
+</div>
+<div class="achievements">23555</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207407982702" class="quote-blizzard"><div><span class="bml-quote-date">03/03/2016 05:29 PM</span>Posted by <a href="index-page=1.html#18">Rygarius</a></div>We're aware of an issue with BNSendGameData() not working correctly in the current build. The issue has been tracked down and should be fixed in an upcoming PTR build.</blockquote><br/>Excellent, thanks for keeping us up to date on these things!
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#19">
+#19
+</a>
+<div class="date" data-tooltip="3/3/2016 6:54 PM PST">3/3/2016</div>
+<meta itemprop="dateCreated" content="2016-03-03T18:54:38-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407982769'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+<div id="post-207407584187" class="topic-post post-20 ajax-update" data-post-id="207407584187">
+<span id="20"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Noikona/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/naxxramas/68/107237444-avatar.jpg?alt=wow/static/images/2d/avatar/11-1.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-20" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Noikona</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Noikona/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Noikona@Cenarion%20Circle&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 10152764, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/cenarion-circle/Noikona/" itemprop="url" class="context-link wow-class-1">
+<span itemprop="name" class="poster-name">Noikona</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-1">
+100 Draenei Warrior
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/cenarion-circle/Crimson%20Blades/">Crimson Blades</a>
+</div>
+<div class="achievements">15200</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="207408081888" class="quote-blizzard"><div><span class="bml-quote-date">03/02/2016 12:13 PM</span>Posted by <a href="index-page=1.html#1">Rygarius</a></div>Conversations<br/>Support for conversations has been removed. This includes all C-functions (BNCreateConversation, BNGetConversationInfo, etc.) as well as all Lua/XML references to conversations.</blockquote><br/><br/>Can this be elaborated on? Is this just taking away the ability for third party sources to access the API but the client retaining the ability for b.net conversations to be created by other unexposed functionality? Or is the ability to create conversations being completely removed from the client. If so this seems counterproductive and could cause some outbursts from the RP community.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#20">
+#20
+</a>
+<div class="date" data-tooltip="3/4/2016 10:06 AM PST">3/4/2016</div>
+<meta itemprop="dateCreated" content="2016-03-04T10:06:52-08" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/20742784697" />
+<div class="post-rating">
++3
+</div>
+<div class="rate-post-wrapper rate-post-login">
+<a href="index-login.html" onclick="return Login.open('https://us.battle.net/login/login.frag')">Login</a> to rate
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+<a class="ui-button button2 reply-to-post" href="#new-post"
+onclick="return Login.open()"><span class="button-left"><span class="button-right">Reply</span></span></a>
+<a class="ui-button button2 quote-post" href="#new-post"
+onclick="return Login.open()" data-post-id='207407584187'><span class="button-left"><span class="button-right"> <span class="icon-quote">Quote</span>
+</span></span></a>
+</div>
+</div>
+</div>
+		</div>
+
+		<div class="forum-actions forum-actions-bottom">
+			<div class="actions-right">
+
+
+
+
+
+
+
+
+<ul class="ui-pagination"><li class="current"><a href="index-page=1.html" data-pagenum="1"><span>1</span></a></li><li><a href="index-page=2.html" data-pagenum="2"><span>2</span></a></li><li class="cap-item"><a class="page-next" href="index-page=2.html" data-pagenum="2"><span>Next</span></a></li></ul>			</div>
+
+
+	<ol class="ui-breadcrumb">
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">World of Warcraft</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">Forums</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/#forum1011643" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">Gameplay and Guides</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/1011693/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">UI and Macro</span>
+					</a>
+				</li>
+
+
+				<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="index.html" rel="np" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">6.2.4 Lua API Changes</span>
+					</a>
+				</li>
+
+	</ol>
+
+		</div>
+
+				<div id="new-post" class="bottom-reply-wrapper">
+	<table class="dynamic-center ">
+		<tr>
+			<td>
+
+
+
+
+	<div class="reply-button-wrapper ajax-update">
+
+<a class="ui-button button1" href="index-login.html"
+onclick="return Login.open();"><span class="button-left"><span class="button-right"> Add a reply
+</span></span></a>
+
+	</div>
+
+</td>
+		</tr>
+	</table>
+				</div>
+	<span class="clear"><!-- --></span>
+
+	<div class="report-violation">
+		<div class="report-violation-inner">
+			<div class="report-violation-icon"></div>
+			<div class="report-violation-details">
+				
+
+
+	<h3 class="subheader-3" >Please report any Code of Conduct violations, including:</h3>
+
+				<p>Threats of violence. <strong>We take these seriously and will alert the proper authorities.</strong></p>
+				<p>Posts containing personal information about other players. <strong>This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.</strong></p>
+				<p>Harassing or discriminatory language. <strong>This will not be tolerated.</strong></p>
+				<p>	<a class="code-of-conduct" href="http://us.battle.net/en-us/community/conduct" target="_blank">Forums Code of Conduct</a>
+</p>
+			</div>
+	<span class="clear"><!-- --></span>
+		</div>
+	</div>
+
+	</div>
+
+	<div id="report-post" class="report-post type-forums">
+		<div id="report-table">
+
+			<div class="report-desc">
+			</div>
+			<div class="report-detail report-data">
+
+
+
+	<h3 class="subheader-3" >					Report Post #<span id="offensive-post-id"></span> written by <span id="offensive-post-author"></span>
+</h3>
+			</div>
+
+			<div class="report-desc">
+				Reason
+			</div>
+			<div class="report-detail">
+				<select id="report-reason" required="required">
+							<option value="SPAMMING">Spamming</option>
+							<option value="ILLEGAL">Illegal</option>
+							<option value="NOT_SPECIFIED">Not Specified</option>
+							<option value="OTHER">Other</option>
+							<option value="REAL_LIFE_THREATS">Real Life Threats</option>
+							<option value="ADVERTISING_STRADING">Advertising</option>
+							<option value="HARASSMENT">Harassment</option>
+							<option value="BAD_LINK">Bad Link</option>
+							<option value="TROLLING">Trolling</option>
+				</select>
+			</div>
+
+			<div class="report-desc">
+				Explain <small>(256 characters max)</small>
+			</div>
+			<div class="report-detail">
+				<textarea id="report-detail" class="post-editor" cols="78" rows="13" required="required" maxlength="256"></textarea>
+			</div>
+			<div class="report-submit-wrapper">
+				
+<a class="ui-button button1 report-submit" href="javascript:;"
+><span class="button-left"><span class="button-right">Submit</span></span></a>
+				<a class="cancel-report" href="javascript:;">Cancel</a>
+			</div>
+		</div>
+		<div id="report-success" class="report-success">
+			
+
+	<h3 class="header-3" >Reported!</h3>
+
+			[<a href='javascript:;' onclick='$("#report-post").hide()'>Close</a>]
+		</div>
+	</div>
+
+		<script type="text/javascript">
+		//<![CDATA[
+
+		$(function(){
+			ReportPost.initialize("#post-list", "forums");
+			ForumTopic.initialize("#post-list", 1011693, 20742784697, 1,
+					37);
+
+		});
+		//]]>
+		</script>
+
+</div>
+</div>
+</div>
+<div class="nav-footer-wrapper">
+<div id="nav-client-footer" class="nav-client">
+<div class="footer-content footer-desktop grid-container"> <div class="nav-section support-feedback">
+<div class="nav-left">
+<div id="nav-feedback">
+<a id="nav-client-news" class="nav-item nav-a nav-item-btn" href="http://us.battle.net/support/" data-analytics="global-nav" data-analytics-placement="Footer - Support"><i class="nav-icon-24-blue nav-icon-question-circle"></i>Support</a>
+<a class="nav-item nav-a nav-item-btn" href="http://us.battle.net/feedback" data-analytics="global-nav" data-analytics-placement="Footer - Feedback"><i class="nav-icon-24-blue nav-icon-edit"></i>Feedback</a>
+</div>
+</div>
+<div class="nav-right">
+<div id="nav-client-region-select">
+<div class="dropdown dropup pull-right">
+<a class="dropdown-toggle nav-item" data-toggle="dropdown">
+<i class="nav-icon-24-blue nav-icon-globe"></i>Americas - English (US)<b class="caret"></b>
+</a>
+<div class="dropdown-menu" data-placement="top">
+<div class="arrow bottom"></div>
+<div id="nav-client-international-desktop">
+<div class="nav-international-container">
+<div class="dropdown-section nav-column-container">
+<div class="nav-column-50">
+<div id="select-regions" class="nav-box regions">
+<h3>Region</h3>
+<ul class="region-ul">
+<li class="region active current"><a class="nav-item select-region" href="javascript:;" data-target="us">Americas</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="eu">Europe</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="kr">Korea</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="tw">Taiwan</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="cn">China</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="sea">Southeast Asia</a></li>
+</ul>
+</div>
+</div>
+<div class="nav-column-50">
+<div id="select-language" class="nav-box languages">
+<h3>Language</h3>
+<div class="region region-languages active current" data-region="us">
+<ul class="region-ul">
+<li class="active current">
+<a class="nav-item select-language" href="http://us.battle.net/wow/en-us/forum/topic/20742784697?page=1" data-target="us" data-language="en-us">English (US)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/es-mx/forum/topic/20742784697?page=1" data-target="us" data-language="es-mx">Español (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/pt-br/forum/topic/20742784697?page=1" data-target="us" data-language="pt-br">Português (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/ja-jp/forum/topic/20742784697?page=1" data-target="us" data-language="ja-jp">日本</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="eu">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/de-de/forum/topic/20742784697?page=1" data-target="eu" data-language="de-de">Deutsch</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/en-gb/forum/topic/20742784697?page=1" data-target="eu" data-language="en-gb">English (EU)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/es-es/forum/topic/20742784697?page=1" data-target="eu" data-language="es-es">Español (EU)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/fr-fr/forum/topic/20742784697?page=1" data-target="eu" data-language="fr-fr">Français</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/it-it/forum/topic/20742784697?page=1" data-target="eu" data-language="it-it">Italiano</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/pl-pl/forum/topic/20742784697?page=1" data-target="eu" data-language="pl-pl">Polski</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/pt-br/forum/topic/20742784697?page=1" data-target="eu" data-language="pt-br">Português (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/ru-ru/forum/topic/20742784697?page=1" data-target="eu" data-language="ru-ru">Русский</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="kr">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://kr.battle.net/wow/ko-kr/forum/topic/20742784697?page=1" data-target="kr" data-language="ko-kr">한국어</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="tw">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://tw.battle.net/wow/zh-tw/forum/topic/20742784697?page=1" data-target="tw" data-language="zh-tw">繁體中文</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="cn">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://www.battlenet.com.cn/wow/forum/topic/20742784697?page=1" data-target="cn" data-language="zh-cn">简体中文</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="sea">
+<ul class="region-ul">
+<li class="active current">
+<a class="nav-item select-language" href="http://sea.battle.net/wow/en-us/forum/topic/20742784697?page=1" data-target="sea" data-language="en-us">English (US)</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropdown-section dropdown-well nav-box localeChange">
+<a id="nav-client-change-language-desktop" href="javascript:;" class="nav-lang-change nav-btn">Change</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-section">
+<div class="nav-left nav-logo-group">
+<div class="footer-logo nav-left">
+<a class="nav-item logo-link" href="http://us.blizzard.com/" data-analytics="global-nav" data-analytics-placement="Footer - Blizzard Logo"><img class="blizzard-logo" src="http://us.battle.net/wow/static/images/nav-client/blizzard.png?v=58-105" alt="" /></a>
+</div>
+<div class="footer-links nav-left">
+<a class="nav-item nav-a" href="http://jobs.blizzard.com/" data-analytics="global-nav" data-analytics-placement="Footer - Careers">Careers</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/about/" data-analytics="global-nav" data-analytics-placement="Footer - About">About</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/about/privacy.html" data-analytics="global-nav" data-analytics-placement="Footer - Privacy">Privacy</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/legal/" data-analytics="global-nav" data-analytics-placement="Footer - Terms">Terms</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://dev.battle.net" data-analytics="global-nav" data-analytics-placement="Footer - API">API</a>
+<div class="copyright">©2016 Blizzard Entertainment, Inc.</div>
+<div class="nav-footer-icon-container">
+<ul class="nav-footer-icon-list">
+</ul>
+</div>
+</div>
+</div>
+<div class="nav-ratings">
+<div class="legal-rating">
+<a class="truste-link logo-link" href="http://privacy.truste.com/privacy-seal/Blizzard-Entertainment,-Inc-/validation?rid=08913c4b-117c-4f4c-9063-e68a2b929dc5" rel="nofollow" target="_blank">
+<img class="legal-image" src="http://us.battle.net/wow/static/images/legal/privacy-seal-truste.png?v=58-105"/>
+</a>
+</div>
+<div class="legal-rating">
+<div class="product-rating esrb-rating clearfix">
+<a href="http://www.esrb.org/ratings/ratings_guide.jsp" tabindex="1" rel="external" target="_blank">
+<img class="esrb-logo" src="http://us.battle.net/wow/static/images/legal/ratings/esrb/en/t.png?v=58-105"
+alt="ESRB Content Rating: T (Teen)" title=""
+width="65" height="97" />
+</a>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Depictions of blood or the mutilation of body parts.">Blood and Gore</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Depictions or dialogue involving vulgar antics, including “bathroom” humor.">Crude Humor</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Mild to moderate use of profanity.">Mild Language</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Mild provocative references or materials.">Suggestive Themes</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="The consumption of alcoholic beverages.">Use of Alcohol</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Scenes involving aggressive conflict. May contain bloodless dismemberment.">Violence</span></span>
+<span class="esrb-disclaimer">Online Interactions Not Rated by the ESRB</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+//<![CDATA[
+var xsToken = '';
+var supportToken = '';
+var jsonSearchHandlerUrl = '//us.battle.net';
+var Msg = Msg || {};
+Msg.support = {
+ticketNew: 'Ticket {0} was created.',
+ticketStatus: 'Ticket {0}’s status changed to {1}.',
+ticketOpen: 'Open',
+ticketAnswered: 'Answered',
+ticketResolved: 'Resolved',
+ticketCanceled: 'Canceled',
+ticketArchived: 'Archived',
+ticketInfo: 'Need Info',
+ticketAll: 'View All Tickets'
+};
+Msg.cms = {
+requestError: 'Your request cannot be completed.',
+ignoreNot: 'Not ignoring this user',
+ignoreAlready: 'Already ignoring this user',
+stickyRequested: 'Sticky requested',
+stickyHasBeenRequested: 'You have already sent a sticky request for this topic.',
+postAdded: 'Post added to tracker',
+postRemoved: 'Post removed from tracker',
+userAdded: 'User added to tracker',
+userRemoved: 'User removed from tracker',
+validationError: 'A required field is incomplete',
+characterExceed: 'The post body exceeds XXXXXX characters.',
+searchFor: "Search for",
+searchTags: "Articles tagged:",
+characterAjaxError: "You may have become logged out. Please refresh the page and try again.",
+ilvl: "Level {0}",
+shortQuery: "Search requests must be at least three characters long.",
+editSuccess: "Success. Reload?",
+postDelete: "Are you sure you want to delete this post?",
+throttleError: "You must wait before you can post again."
+};
+Msg.bml= {
+bold: 'Bold',
+italics: 'Italics',
+underline: 'Underline',
+list: 'Unordered List',
+listItem: 'List Item',
+quote: 'Quote',
+quoteBy: 'Posted by {0}',
+unformat: 'Remove Formating',
+cleanup: 'Fix Linebreaks',
+code: 'Code Blocks',
+item: 'WoW Item',
+itemPrompt: 'Item ID:',
+url: 'URL',
+urlPrompt: 'URL Address:'
+};
+Msg.ui= {
+submit: 'Submit',
+cancel: 'Cancel',
+reset: 'Reset',
+viewInGallery: 'View in gallery',
+loading: 'Loading…',
+unexpectedError: 'An error has occurred',
+fansiteFind: 'Find this on…',
+fansiteFindType: 'Find {0} on…',
+fansiteNone: 'No fansites available.',
+flashErrorHeader: 'Adobe Flash Player must be installed to see this content.',
+flashErrorText: 'Download Adobe Flash Player',
+flashErrorUrl: 'http://get.adobe.com/flashplayer/',
+save: 'Save'
+};
+Msg.grammar= {
+colon: '{0}:',
+first: 'First',
+last: 'Last',
+ellipsis: '…'
+};
+Msg.fansite= {
+achievement: 'achievement',
+character: 'character',
+faction: 'faction',
+'class': 'class',
+object: 'object',
+talentcalc: 'talents',
+skill: 'profession',
+quest: 'quest',
+spell: 'spell',
+event: 'event',
+title: 'title',
+arena: 'arena team',
+guild: 'guild',
+zone: 'zone',
+item: 'item',
+race: 'race',
+npc: 'NPC',
+pet: 'pet'
+};
+Msg.search= {
+noResults: 'There are no results to display.',
+kb: 'Support',
+post: 'Forums',
+article: 'Blog Articles',
+static: 'General Content',
+wowcharacter: 'Characters',
+wowitem: 'Items',
+wowguild: 'Guilds',
+wowarenateam: 'Arena Teams',
+url: 'Suggested Links',
+friend: 'Friends',
+product: 'Marketplace Products',
+other: 'Other'
+};
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common/menu.js?v=58"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/js/wow.js?v=105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/js/nav-client/navbar-tk.min.js?v=105"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.nav.notifications.endpoint = "";
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common/search-pane.js?v=58"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+Menu.initialize("/data/menu.json", { "colMax": 16 });
+Search.initialize('/wow/en/search/ta');
+});
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/cms-overlay/js/build/cms.min.js?v=105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/forum-overlay/js/build/forum.min.js?v=105"></script>
+<script>
+//<![CDATA[
+(function() {
+var ga = document.createElement('script');
+var src = "https://ssl.google-analytics.com/ga.js";
+if ('http:' == document.location.protocol) {
+src = "http://www.google-analytics.com/ga.js";
+}
+ga.type = 'text/javascript';
+ga.setAttribute('async', 'true');
+ga.src = src;
+var s = document.getElementsByTagName('script');
+s = s[s.length-1];
+s.parentNode.insertBefore(ga, s.nextSibling);
+})();
+//]]>
+</script>
+</body>
+</html>
+<!-- Localized -->

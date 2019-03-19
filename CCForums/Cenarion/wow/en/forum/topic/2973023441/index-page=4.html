@@ -1,0 +1,1898 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" class="en-us">
+<head xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="imagetoolbar" content="false" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>How To Implement Cross-Realm Raid Finder - Forums - World of Warcraft</title>
+<link rel="shortcut icon" href="http://us.battle.net/wow/static/images/meta/favicon.ico?v=58-105" />
+<link rel="search" type="application/opensearchdescription+xml" href="http://us.battle.net/en-us/data/opensearch" title="Battle.net Search" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/local-common/css/common-game-site.css?v=58-105" />
+<link title="World of Warcraft® - News" href="http://us.battle.net/wow/en/feed/news" type="application/atom+xml" rel="alternate"/>
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/nav-client/nav-client-desktop.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/lightbox.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/forum-overlay/css/build/forum.min.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/forums-index.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/view-forum.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/view-topic.css?v=105" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/forums/blizz-tracker.css?v=105" />
+<!--[if IE]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie.css?v=105" />
+<![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie6.css?v=105" />
+<![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/wow-ie7.css?v=105" />
+<![endif]-->
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/third-party.js?v=58-105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common-game-site.js?v=58-105"></script>
+<!--[if IE 6]> <script type="text/javascript">
+//<![CDATA[
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+var Core = Core || {},
+Login = Login || {};
+Core.staticUrl = '/wow/static';
+Core.sharedStaticUrl = '/wow/static/local-common';
+Core.baseUrl = '/wow/en';
+Core.projectUrl = '/wow';
+Core.cdnUrl = 'http://media.blizzard.com';
+Core.supportUrl = 'http://us.battle.net/support/';
+Core.secureSupportUrl = 'https://us.battle.net/support/';
+Core.project = 'wow';
+Core.locale = 'en-us';
+Core.language = 'en';
+Core.region = 'us';
+Core.shortDateFormat = 'MM/dd/yyyy';
+Core.dateTimeFormat = 'MM/dd/yyyy hh:mm a';
+Core.loggedIn = false;
+Core.userAgent = 'web';
+Login.embeddedUrl = 'https://us.battle.net/login/login.frag';
+var Flash = Flash || {};
+Flash.videoPlayer = 'http://media.blizzard.com/global-video-player/themes/wow/video-player.swf';
+Flash.videoBase = 'http://media.blizzard.com/wow/media/videos';
+Flash.ratingImage = 'http://media.blizzard.com/global-video-player/ratings/wow/en-us.jpg';
+Flash.expressInstall = 'http://media.blizzard.com/global-video-player/expressInstall.swf';
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-544112-16']);
+_gaq.push(['_setDomainName', '.battle.net']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+//]]>
+</script>
+<meta property="fb:app_id" content="175314325675" />
+<meta property="og:site_name" content="World of Warcraft" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://us.battle.net/wow/en/forum/topic/2973023441" />
+<meta property="og:image" content="http://media.blizzard.com/battle.net/logos/og-wow.png" />
+<meta property="og:image" content="http://media.blizzard.com/battle.net/logos/og-blizzard.png" />
+<meta property="og:title" content="How To Implement Cross-Realm Raid Finder" />
+<meta property="og:description" content="This is a topic that has come up time and time again, but I think really needs some thought now that the Only Raiders Need Raid Gear vs. T11 for JP&#39;s argument has really heated up. I think there is a way to do this and do it right, here&#39;s the plan: ***NOTE: In this post the term &quot;ENCOUNTER&quot; refers to an indiv" />
+<link rel="canonical" href="index.html" />
+<link rel="stylesheet" type="text/css" media="all" href="http://us.battle.net/wow/static/css/legal/ratings.css?v=58-105" />
+</head>
+<body class="en-us forums view-topic">
+<script>
+//<![CDATA[
+var dataLayer = [{
+"authenticated": "0" }];
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!="dataLayer"?"&amp;l="+l:"";j.async=true;j.src=
+"//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})
+(window,document,"script","dataLayer","GTM-M39SFZ");
+//]]>
+</script>
+<div id="nav-client-header" class="nav-client compact">
+<div id="nav-client-bar">
+<div class="grid-container nav-header-content">
+<ul class="nav-list nav-left" id="nav-client-main-menu">
+<li>
+<a id="nav-client-home" class="nav-item nav-home" href="http://us.battle.net/" data-analytics="global-nav" data-analytics-placement="Nav - Battle.net Icon"></a>
+</li>
+<li>
+<div class="dropdown games">
+<a class="dropdown-toggle nav-link needsclick active" data-toggle="dropdown">
+Games
+<b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<ul class="nav-product-card-container games-menu" role="menu">
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/wow/" data-analytics="global-nav" data-analytics-placement="Nav - Games - World of Warcraft"><i class="nav-icon-wow"></i>World of Warcraft®</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/d3/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Diablo III"><i class="nav-icon-d3"></i>Diablo® III</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/sc2/" data-analytics="global-nav" data-analytics-placement="Nav - Games - StarCraft II"><i class="nav-icon-sc2"></i>StarCraft® II</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/hearthstone/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Hearthstone"><i class="nav-icon-hearthstone"></i>Hearthstone®</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/heroes/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Heroes of the Storm"><i class="nav-icon-heroes"></i>Heroes of the Storm™</a>
+</li>
+<li>
+<a class="nav-item game-icon" href="http://us.battle.net/overwatch/" data-analytics="global-nav" data-analytics-placement="Nav - Games - Overwatch"><i class="nav-icon-overwatch"></i>Overwatch™</a>
+</li>
+</ul>
+<div class="dropdown-well dropdown-section download-btn">
+<a class="nav-item nav-a nav-item-box" href="http://us.battle.net/games/classic" data-analytics="global-nav" data-analytics-placement="Nav - Games - Classic Games"><i class="nav-icon-24-blue nav-icon-mouse"></i>Classic Games</a>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a id="nav-client-shop" class="nav-item nav-link needsclick" href="https://us.battle.net/shop/" data-analytics="global-nav" data-analytics-placement="Nav - Shop">Shop</a>
+</li>
+</ul>
+<ul class="nav-list nav-right" id="nav-client-account-menu">
+<li>
+<div id="username">
+<div class="dropdown pull-right">
+<a class="nav-link username username--loggedout needsclick dropdown-toggle" data-toggle="dropdown" rel="navbar">
+Your account
+<b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<div class="arrow top"></div>
+<div class="user-profile">
+<div class="dropdown-section">
+<div class="nav-box">
+<a class="nav-item nav-btn nav-btn-block nav-login-btn" href="index-login.html" data-analytics="global-nav" data-analytics-placement="Nav - Account - Log In">Log In</a>
+</div>
+</div>
+<div class="dropdown-section">
+<ul class="nav-list">
+<li>
+<a class="nav-item nav-a nav-item-box" href="http://us.battle.net/account/management/" data-analytics="global-nav" data-analytics-placement="Nav - Account - Settings"><i class="nav-icon-24-blue nav-icon-character-cog"></i>Account Settings</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<a id="nav-client-support-link" class="nav-item nav-link needsclick" href="http://us.battle.net/support/" data-analytics="global-nav" data-analytics-placement="Nav - Support"> Support </a>
+</li>
+<li>
+<div class="nav-notification-icon">
+<a class="dropdown-toggle needsclick nav-item" rel="navbar">
+<i class="needsclick nav-icon-bell"></i>
+</a>
+<div class="nav-notification-dropdown dropdown-menu">
+<div class="arrow top"></div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-notification-responsive-container">
+<div class="nav-notification-dropdown dropdown-menu">
+<div class="arrow top"></div>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div id="header">
+<div class="search-bar">
+<form action="/wow/en/search" method="get" autocomplete="off">
+<div>
+<input type="search" class="search-field input" name="q" id="search-field" maxlength="200" tabindex="40" alt="Search characters, items, forums and more…" value="Search characters, items, forums and more…" />
+<input type="submit" class="search-button" value="" tabindex="41" />
+</div>
+</form>
+</div>
+<h1 id="logo"><a href="http://us.battle.net/wow/en/">World of Warcraft®</a></h1>
+<div class="header-plate">
+<ul class="menu" id="menu">
+<li class="menu-home" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/">
+<span itemprop="name">Home</span>
+</a>
+</li>
+<li class="menu-game" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/game/">
+<span itemprop="name">Game Guide</span>
+</a>
+</li>
+<li class="menu-community" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/community/">
+<span itemprop="name">Community</span>
+</a>
+</li>
+<li class="menu-media" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/media/">
+<span itemprop="name">Media</span>
+</a>
+</li>
+<li class="menu-forums" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/forum/" class="menu-active">
+<span itemprop="name">Forums</span>
+</a>
+</li>
+<li class="menu-services" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a itemprop="url" href="http://us.battle.net/wow/en/shop/">
+<span itemprop="name">Shop</span>
+</a>
+</li>
+</ul>
+<div class="user-plate">
+<a href="index-login.html" class="card-character plate-logged-out" onclick="return Login.open('https://us.battle.net/login/login.frag');">
+<span class="card-portrait"></span>
+<span class="wow-login-key"></span>
+<span class="login-msg"><strong>Log in now</strong> to enhance and personalize your experience!</span>
+</a>
+</div>
+</div>
+<div class="new-feature-tip" id="feature-tip" style="display: none">
+<a href="http://us.battle.net/wow/en/zone/" data-label="World of Warcraft Game Guide" class="clickable">
+<span class="title">FEATURE UPDATED!</span>
+<strong>Scenarios </strong>
+<span class="desc">Check out our new guide pages with detailed information about the new Mists of Pandaria scenarios!</span>
+</a>
+<a href="javascript:;" class="close" rel="close" data-label="Close"></a>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+Core.showUntilClosed('#feature-tip', 'mop.talent.calculator', {
+startDate: '2012/11/28',
+endDate: '2012/12/04',
+cookieParams: { expires: 720 }
+});
+//]]>
+</script>
+</div>
+<div id="content">
+<div class="content-top body-top">
+<div class="content-trail">
+<ol class="ui-breadcrumb">
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">World of Warcraft</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Forums</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/#forum984269" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Community</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="http://us.battle.net/wow/en/forum/984270/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">General Discussion</span>
+</a>
+</li>
+<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="index.html" rel="np" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">How To Implement Cross-Realm Raid Finder</span>
+</a>
+</li>
+</ol>
+</div>
+<div class="content-bot clear">
+	<div class="forum-wrapper" data-forum-id="984270">
+		<div class="topic-header-wrapper">
+			<div class="topic-header">
+
+
+
+	<h2 class="subheader-2" >					
+					<span class="topic-title">How To Implement Cross-Realm Raid Finder </span>
+</h2>
+
+
+
+
+	<h3 class="subheader-3" >						<span class="topic-status">(Locked)</span>
+</h3>
+
+				<div class="topic-status-buttons">
+
+		<a class="next-blizz-post" href="index-page=5.html#97" data-tooltip="Jump to first Blizzard Post"></a>
+				</div>
+
+			</div>
+		</div>
+	<span class="clear"><!-- --></span>
+
+
+		<div class="forum-actions forum-actions-top">
+
+			<div class="actions-right">
+
+
+
+
+
+
+
+
+
+
+<ul class="ui-pagination"><li class="cap-item"> <a class="page-prev" href="index-page=3.html" data-pagenum="3"><span>Prev</span></a>
+</li><li><a href="index-page=1.html" data-pagenum="1"><span>1</span></a></li><li class="expander"><span>…</span></li><li><a href="index-page=3.html" data-pagenum="3"><span>3</span></a></li><li class="current"><a href="index-page=4.html" data-pagenum="4"><span>4</span></a></li><li><a href="index-page=5.html" data-pagenum="5"><span>5</span></a></li><li class="expander"><span>…</span></li><li><a href="index-page=13.html" data-pagenum="13"><span>13</span></a></li><li class="cap-item"><a class="page-next" href="index-page=5.html" data-pagenum="5"><span>Next</span></a></li></ul>			</div>
+
+
+
+
+	<div class="reply-button-wrapper ajax-update">
+
+<a class="ui-button button1 disabled" href="javascript:;"
+data-tooltip="This topic is locked."><span class="button-left"><span class="button-right"> Add a reply
+</span></span></a>
+
+	</div>
+
+
+	<span class="clear"><!-- --></span>
+		</div>
+
+
+		<div id="post-list" class="post-list">
+
+<div id="post-30306914018" class="topic-post post-61 ajax-update" data-post-id="30306914018">
+<span id="61"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/Ragemore/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/100/109634148-avatar.jpg?alt=wow/static/images/2d/avatar/10-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-1" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Ragemore</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/Ragemore/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Ragemore@&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 1000951, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/Ragemore/" itemprop="url" class="context-link wow-class-2">
+<span itemprop="name" class="poster-name">Ragemore</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-2">
+85 Blood Elf Paladin
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/The%20Green%20Panty%20Bandits/">The Green Panty Bandits</a>
+</div>
+<div class="achievements">5275</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>If any Blues are reading, PLEASE, note that this guy is a prime example of what we have to wade through in an attempt to earn some progression. Please take that into account when you weigh this idea.</blockquote><br/><br/>Also, ^ this oh so much.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#61">
+#61
+</a>
+<div class="date" data-tooltip="8/16/2011 12:19 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T00:19:45-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++2
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30321110931" class="topic-post post-62 ajax-update" data-post-id="30321110931">
+<span id="62"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-2" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>I could care less what little idea you try to worm into their brain. <br/><br/><br/>No one forces you to play with someone who actually expects others to at least know what hell they need to do. No one -tells- you, you have to even bother trying to raid.<br/><br/>In your own delusion you think you should be given a way to do something with others that you/your guild cannot do on their own. And this my friend is pathetic.<br/><br/>Edit: On another note, if people in your guild can't do this, what makes you think an even more random gathering of fools are going to do much better. You said to look at the dungeon journal to learn the fight if you get kicked...shouldn't you be looking at it anyway to help your own guild and not try and lead the blind by being deaf?</blockquote><br/><br/>Did you read a word of my original post? You'll have to read the Dungeon Journal cover to cover pretty much before you can even queue. <br/><br/>If you would re-read my guidelines, you'd see that I'm not at all talking about welfare gear or any of that Wrath crap. I'm talking about people who have taken the time to learn and gear and just want a chance to get in there, a chance that people like you refuse to give us. <br/><br/>Take a look at the language I used in my original post. It's an idea made for players who are willing to do the work and who are wanting to earn their progression/gear. I think I used those exact phrases multiple times. <br/><br/>But I doubt you really want to talk about that. You'd rather continue on with the idea that you're better than everybody else and therefore have a right to look down and talk down to anybody that isn't in the exact same position as you. Your opinion on this issue is actually quite irrelevant. You obviously would never have to use this tool and nobody would be using it to step on your toes because it excludes the current tier...so I don't even know why you even have a gripe about it.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#62">
+#62
+</a>
+<div class="date" data-tooltip="8/16/2011 12:22 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T00:22:35-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++2
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30306914296" class="topic-post post-65 ajax-update" data-post-id="30306914296">
+<span id="65"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/caelestrasz/Perkypanda/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/caelestrasz/82/80983634-avatar.jpg?alt=wow/static/images/2d/avatar/26-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-3" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Perkypanda</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/caelestrasz/Perkypanda/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Perkypanda@Caelestrasz&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 27946003, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/caelestrasz/Perkypanda/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Perkypanda</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Pandaren Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/caelestrasz/Dreams%20and%20Nightmares/">Dreams and Nightmares</a>
+</div>
+<div class="achievements">6690</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Want!!!!
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#65">
+#65
+</a>
+<div class="date" data-tooltip="8/16/2011 1:06 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T01:06:13-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30306914410" class="topic-post post-66 ajax-update" data-post-id="30306914410">
+<span id="66"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/magtheridon/Enyalois/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/magtheridon/109/61886573-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-4" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Enyalois</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/magtheridon/Enyalois/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Enyalois@Magtheridon&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 343645, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/magtheridon/Enyalois/" itemprop="url" class="context-link wow-class-5">
+<span itemprop="name" class="poster-name">Enyalois</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-5">
+85 Blood Elf Priest
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/magtheridon/Panic%20Attack/">Panic Attack</a>
+</div>
+<div class="achievements">12590</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+I'm sorry Mallekai. You say <blockquote>RDF is a terrible community wrecking, immersion breaking, game destroying feature a raid finder would just be another enormous step in this terrible direction</blockquote><br/><br/>I say that Elietism and inaccessability have been among the leading reasons that Warcraft has become unpleasurable (read as unprofitable for blizzard) for (some) people.... you see... Suill is a prime example of person that want's to restrict what <strong><em>she</em></strong> see's as power to a select group in a similar fashion that some forms of goverment *cough dictators cough* use. Scared of the idea of losing thier "power" causes stagnation. Causing thier communities downfall... or revolution. <br/><br/>Now I will not argue that people like the above mentioned have played... and played hard to get the rewards and I say Kudos.... you have shown us what is possible, but all that is being proposed here is simply another path for those who play just as hard to play at the same level WITHOUT the elietism and segragation that is corrupting the community.<br/><br/>It's understandable that such people will be resistant to change because it means that they will be playing in a muuuuuch bigger playing field than the single realm they are currently in. Scared that they will no longer be the BIG fish in the pond cause some fish are trying to open the pond to the ocean to play with the other fish. <br/><br/>So you know what I say... let these scared elite's rant about how wrong this idea is... let them rave about how this will "ruin the game" because yknow what... Blizzard is smarter than that. They will (imo) do it for several reasons:<br/><br/>1) It will draw back those people who have had to drop because of work scheduals.<br/>2) It will connect people who have moved away both in and out of game.<br/>3) It will allow them to (possibly) add a surcharge to the service they currently provide ... monthly which will exceed thier 1 time server transfer charge.<br/>4) They know that it it the HARDCORES and Elite's who are pushing content faster than expected and will (likely) be able to slow it down a lil so everyone has a chance at it before the whining starts.<br/><br/>These are RL reasons (not mentioning minor details like staff hiring, increased opprotunities and such)<br/><br/>And let us not forget that they may impliment a translator program into the text portion (chat's) such as babylon (example) which could make this a world wide interactive game.<br/><br/>So please.... little elite/hardcore fishies.... rant, rave and be afraid because the future is coming... find your place in it or be lost to time.<br/><br/>Spirit of Cooperation- The GOOD work TOGETHER for a brighter future<br/>Spirit of Compitition- The EVIL work AGAINST each other for thier own ends<br/>Which are YOU?
+</div>
+<div class="post-edited">
+Edited by Enyalois on 8/16/2011 2:48 AM PDT
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#66">
+#66
+</a>
+<div class="date" data-tooltip="8/16/2011 1:24 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T01:24:13-07" />
+<meta itemprop="dateModified" content="2011-08-16T02:48:38-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30303315129" class="topic-post post-67 ajax-update" data-post-id="30303315129">
+<span id="67"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/blackrock/Nosixa/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/blackrock/54/72682806-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-5" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Nosixa</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/blackrock/Nosixa/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Nosixa@Blackrock&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 4265958, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/blackrock/Nosixa/" itemprop="url" class="context-link wow-class-9">
+<span itemprop="name" class="poster-name">Nosixa</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-9">
+60 Blood Elf Warlock
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/blackrock/Deviate/">Deviate</a>
+</div>
+<div class="achievements">11480</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+I'd love to see them implement something like this.<br/><br/>Althought I'd love a chance to raid everything including the current content I understand your reasons behind the rules/restrictions that you have outlined.<br/><br/>As I was reading it I was thinking don't forget an ingame voice chat for organization!... why haven't you talked about a voice chat... oh there we go. I think if you were trying to PUG a raid full of first-timers there would be a very low chance of any success if you were trying to explain anything during the fight via typing. "Blackout, everyone stack on the tail now!" by the time you've typed it out, sent it the new player notices/reads it and starts running from the other side of the room because they were unfortunatly the fartherst away they could possiably be is just laughable. <br/><br/>I didn't raid during Vanilla, BC, Wrath I chose not to due to RL commitments. Come Cata I thought I'd give it a try and found I couldn't get into raid due to my lack of raid experiance. I got invited to a guild run when they were down a player (I was the only guildy online and my fiance scored me a spot over them pugging) I was a little undergeared and lets face it I sucked. I think I did 5k dps on my first halfus run. I have since then geared up and improved (as I was added to the core raiding team- for lack of anyone else I think) I remember how pleased I was that I was no longer being carried for lack of a better word when I started topping the dps for Halfus. When my fiance quit wow I had to stop raiding as I couldn't garentee my attendance.<br/>I have tried to pug raids since and found it very unsuccessful. My ilvl is 360, I have all the achievements including some heroics. I just don't get invited to groups and the groups I do get generally wipe and fall apart. This is where I see the LFR tool being useful. I don't mind the wipes it's the fact that people bail afterwards and you have to start looking all over again. I think that people using the LFR will understand that wipes are to be expected and will stay for the long haul.<br/>Would be nice to be able to gear up alts, try out a different spec. Your geared enough via dungeons etc, you know the fights via reading/doing them on another toon or in a different roll and now you just need a group willing to let you have a go.<br/><br/><br/>I was just curious to know what you thought about a couple of things. <br/>Would the encounters be just the boss fights or would it be the trash that leads up to them and then the boss? eg: if you queued for Valiona &amp; Theralion would it be zoning in after Halfus where you'd have to clear the trash before the Valiona &amp; Theralion encounter?<br/><br/>Would you beable to que for anything? or would you say have to start with the first boss and unlock them as you go through? <br/><br/>I think it would be nice to have a "continue" feature added. Say you queued for Halfus once he was downed (and loot was awarded) it would pop up saying would you like to continue? everyone that clicks yes stays grouped and is added to the que (with priority?) for the next encounter. <br/><br/>When I'm leveling alts via randomLFD I sometimes find that I like the group I'm in and we will reque generally getting the exact same instance, where I'd much rather do the next part of SM, Mara, DM, Strat etc.<br/>
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#67">
+#67
+</a>
+<div class="date" data-tooltip="8/16/2011 2:44 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T02:44:15-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30326910930" class="topic-post post-69 ajax-update" data-post-id="30326910930">
+<span id="69"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-6" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="30321111546" class="quote-public"><div><span class="bml-quote-date">08/16/2011 03:00 AM</span>Posted by <a href="index-page=4.html#68">Crucafix</a></div>Seems to me that folks are against it for the same reason that most people don't like the RDF.</blockquote><br/><br/>But the beauty of the RDF is that it's <em>optional</em>. If you want to zip through heroics with your guild that's not only fine, it's encouraged. Nobody will be strapped down and forced to use this tool. <br/><br/>If you've already run the content and have achieves, then keep going as normal. Run with your guild or PuG with people from your server that you know are good. Nobody is taking that away from you. If it turns out to suck and be horrible then it will only suck and be horrible for people who at the moment have absolutely nothing. Suck and horrible is better than nothing because at least you get <em>a chance</em>, which is all this tool is about. Besides, think of the fun you could have using it to do other things. Roll and alt to 60 and do AQ40 again...who could possibly be against that?
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#69">
+#69
+</a>
+<div class="date" data-tooltip="8/16/2011 3:36 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T03:36:51-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30326910939" class="topic-post post-70 ajax-update" data-post-id="30326910939">
+<span id="70"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-7" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="30326910257" class="quote-public"><div><span class="bml-quote-date">08/16/2011 12:43 AM</span>Posted by <a href="index-page=4.html#63">Siull</a></div>I didn't expect my hand to be held as I raided, I didn't expect anyone to tell me what -I- was doing wrong and what I could do to fix it. I took the time and the effort to learn those fights inside and out so I wouldn't mess up again.</blockquote><br/><br/>Are you just purposely ignoring the part about being forced to read every encounter in the dungeon journal? Then being forced to read it again if you get kicked for sucking? <br/><br/>I don't think you've read a word that I wrote...<br/><br/>You haven't done anything different than any of the rest of us. I've watched videos, read guides, done all my homework, but I just can't get into a raid because I don't have an achieve. All this tool will do is give that opportunity to people who are willing to work for it and earn the rewards the same way you did. There's no magic function involved here that magically does an encounter for you and ninja rolls all the loot you want directly into your bags. All this does is bypass people like you that want to keep people like us out of end-game content, and that's what really has you steamed.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#70">
+#70
+</a>
+<div class="date" data-tooltip="8/16/2011 3:41 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T03:41:02-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30303315963" class="topic-post post-72 ajax-update" data-post-id="30303315963">
+<span id="72"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/Pensive/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/186/120487354-avatar.jpg?alt=wow/static/images/2d/avatar/2-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-8" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Pensive</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/Pensive/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Pensive@&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 966419, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/Pensive/" itemprop="url" class="context-link wow-class-8">
+<span itemprop="name" class="poster-name">Pensive</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-8">
+85 Orc Mage
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/Novo%20Ordum%20Mundi/">Novo Ordum Mundi</a>
+</div>
+<div class="achievements">9335</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+Wouldn't a cross-realm raid finder (which would undoubtedly just be another premium content feature) be a mandatory RL-money expense on most competent raiding guilds, like vent or mumble?
+</div>
+<div class="post-edited">
+Edited by Pensive on 8/16/2011 6:23 AM PDT
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#72">
+#72
+</a>
+<div class="date" data-tooltip="8/16/2011 6:22 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T06:22:50-07" />
+<meta itemprop="dateModified" content="2011-08-16T06:23:10-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30321112900" class="topic-post post-73 ajax-update" data-post-id="30321112900">
+<span id="73"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-9" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="30303315963" class="quote-public"><div><span class="bml-quote-date">08/16/2011 06:22 AM</span>Posted by <a href="index-page=4.html#72">Pensive</a></div>Wouldn't a cross-realm raid finder (which would undoubtedly just be another premium content feature) be a mandatory RL-money expense on most competent raiding guilds, like vent or mumble?</blockquote><br/><br/>Why would it be a mandatory feature for raiding guilds? The entire point of the idea is for people who aren't in raiding guilds. <br/><br/>I never said anything about it being a premium service, but I wouldn't be entirely against the idea. I highly doubt it would ever get off the ground if it were though, so I'd have to vote against that.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#73">
+#73
+</a>
+<div class="date" data-tooltip="8/16/2011 8:43 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T08:43:04-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30303316646" class="topic-post post-75 ajax-update" data-post-id="30303316646">
+<span id="75"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-10" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>Your kidding right. Most people at 85 dont even use the LFD anymore for za and zg.<br/>All you get is scrubs in greens and pvp tanks. You think LFR is a good option? <br/>Good luck geting anyone decently geared to go! 346 was the za minimum and lets face it people still sux at 360 i lvl. <br/>As much good as you think this option will provide all i can see is baddies tring to get in the LFR because they cant do good enough dps to get in a guild</blockquote><br/><br/>Alright then, they'll be the ones wiping, they'll be the ones wasting their time, they'll be the ones paying the repair bills. It doesn't affect you in the least bit. <br/><br/>But look at what happened with ZA and ZG, players adapted to the difficulty and got better. I haven't wiped in an LFD Zul group in over a month now, except the other night on Jin'Do when it was tank's first time. But that was only twice and we nailed it the third time. <br/><br/>Just imagine how much better the playerbase will be once they adapt to the difficulty of Nefarian or Atramedes. The next heroic tier will be a breeze. And that will eliminate any hesitancy on Blizzards part to make content that might be "too difficult"...Hell if players are knocking out last tier's raids in PuG's, imagine what they'll be capable of for next tier's heroics.<br/><br/>But, all of that said, it's still optional. If you don't use it, then you don't have ever worry about being in a group that fails on it. You can continue to run with your guild or server PuG's and keep going as if nothing ever happened.
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#75">
+#75
+</a>
+<div class="date" data-tooltip="8/16/2011 8:59 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T08:59:33-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+<div class="post-rating">
++1
+</div>
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30303316959" class="topic-post post-76 ajax-update" data-post-id="30303316959">
+<span id="76"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/Sitandrotate/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/100/98070372-avatar.jpg?alt=wow/static/images/2d/avatar/11-1.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-11" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Sitandrotate</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/Sitandrotate/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Sitandrotate@&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 14537521, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/Sitandrotate/" itemprop="url" class="context-link wow-class-7">
+<span itemprop="name" class="poster-name">Sitandrotate</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-7">
+85 Draenei Shaman
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/%C3%89xodus/">Éxodus</a>
+</div>
+<div class="achievements">3315</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote>Spirit of Cooperation- The GOOD work TOGETHER for a brighter future<br/>Spirit of Compitition- The EVIL work AGAINST each other for thier own ends<br/>Which are YOU?</blockquote><br/><br/>This is getting tiresome to look at. I've seen it a couple times in the past few days and it's played out. It's basically drawing a line in the sand and saying, "I'm on the righteous side of this line, you are in the wrong" while sarcastically calling for the "wrong-doer" to fix it. Hop on down that high horse.<br/><br/>Anyways, to the OP's topic: I think Blizzard would do well to fix the current raid browser before even considering a cross-realm LFG for raids. The raid browser in it's current incarnation is a complete joke, and it's almost an insult that it be in the game. The devs seem to be completely out of touch with it (read: the laughable blue post recently suggesting it), while being utterly clueless as to the direction it needs to go. It was an idea that flopped, big time, and I don't think anyone calling the shots wants to openly admit that it failed. They need to step back and take a serious look at their current raid browser before evolving the idea into a cross-realm raid finder.<br/><br/>You, your supporters, and the devs also need to consider the effect the current lockout system would have on this. If I queue a random in the LFG and the group fails or falls apart after the first boss, I can requeue a random until I get the instance again and complete it. If I get bored running randoms until I get that same instance which I'm locked to again, I can simply come back tomorrow and try again. With a week lockout on raids, that bad group you queued a raid with on Tuesday who barely kept it together for Halfus and entered twilight on twin dragons suddenly just cost you an entire week's lockout. There are a couple of ways to work around this; I saw a few floating around this thread, but it remains a considerable hurdle. This raid finding tool is essentially a hybrid LFG, but raids and 5-man instances do not share the same pre-requisites or restrictions.
+</div>
+<div class="post-edited">
+Edited by Sitandrotate on 8/16/2011 9:36 AM PDT
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#76">
+#76
+</a>
+<div class="date" data-tooltip="8/16/2011 9:35 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T09:35:43-07" />
+<meta itemprop="dateModified" content="2011-08-16T09:36:08-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30303318168" class="topic-post post-77 ajax-update" data-post-id="30303318168">
+<span id="77"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-12" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="30303316959" class="quote-public"><div><span class="bml-quote-date">08/16/2011 09:35 AM</span>Posted by <a href="index-page=4.html#76">Sitandrotate</a></div>You, your supporters, and the devs also need to consider the effect the current lockout system would have on this. If I queue a random in the LFG and the group fails or falls apart after the first boss, I can requeue a random until I get the instance again and complete it. If I get bored running randoms until I get that same instance which I'm locked to again, I can simply come back tomorrow and try again. With a week lockout on raids, that bad group you queued a raid with on Tuesday who barely kept it together for Halfus and entered twilight on twin dragons suddenly just cost you an entire week's lockout. There are a couple of ways to work around this; I saw a few floating around this thread, but it remains a considerable hurdle. This raid finding tool is essentially a hybrid LFG, but raids and 5-man instances do not share the same pre-requisites or restrictions.</blockquote><br/><br/>There would only be a 72 hour lockout under the system I proposed and that is just to discourage rampant farming. You can do the encounter twice per lock, put it that way. Once via the LFR and once with a server only group. You can take out lets say AlAkir via the LFR. You then cannot go back to him via the LFR for 3 days, however if you didnt get what you wanted the first time you can go back with a server only group now that you have an achievement to show for it and try for that piece of gear again, or just if you really like the fight and want to have another go at it. After you run with your server group though, then the normal raid lock will apply and you cannot go back to that instance either via LFR or via server group until whichever of the two is the longest has expired.<br/><br/>To tell you the truth, I wouldnt even be against the idea of nerfing drops via this system. For example, if a boss drops 3 or 4 items in a regular server group, he only drops one or two in LFR runs. This way once people have the achieves and can get into their server pugs, they can give it another try. Thats kind of the other end of how I had wanted to propose the lockout system. That way server community and guild runs wont take so much of a hit as people might think, there will still be incentive to interact with people on your server and run with your guild.<br/><br/>Honestly, you could even make it so that they drop no loot at all and its just a way for people to earn achievements. That would shut the "You just want welfare gear!" crowd up pretty quick.
+</div>
+<div class="post-edited">
+Edited by Ricardozara on 8/16/2011 11:59 AM PDT
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#77">
+#77
+</a>
+<div class="date" data-tooltip="8/16/2011 11:53 AM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T11:53:50-07" />
+<meta itemprop="dateModified" content="2011-08-16T11:59:37-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+<div id="post-30321114744" class="topic-post post-80 ajax-update" data-post-id="30321114744">
+<span id="80"></span>
+<div class="post-interior" itemscope="itemscope" itemtype="http://schema.org/Comment">
+<div class="post-character">
+<div class="forum-user ">
+<div class="forum-avatar">
+<div class="bnet-avatar ">
+<div class="avatar-outer">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/">
+<img height="64" width="64" src="http://render-api-us.worldofwarcraft.com/static-render/us/quelthalas/107/65304939-avatar.jpg?alt=wow/static/images/2d/avatar/1-0.jpg" alt="" />
+<span class="avatar-inner"></span>
+</a>
+</div>
+</div>
+</div>
+<div class="user-details">
+<div class="bnet-username" itemscope="itemscope" itemprop="author" itemtype="http://schema.org/Person">
+<div id="context-13" class="ui-context">
+<div class="context">
+<a href="javascript:;" class="close" onclick="return CharSelect.close(this);"></a>
+<div class="context-user">
+<strong>Macávity</strong>
+</div>
+<div class="context-links">
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" title="Profile" rel="np"
+class="icon-profile link-first"
+>
+<span class="context-icon"></span>Profile
+</a>
+<a href="http://us.battle.net/wow/en/search?f=post&a=Mac%C3%A1vity@Quel'Thalas&sort=time" title="View posts" rel="np"
+class="icon-posts"
+>
+<span class="context-icon"></span>
+</a>
+<a href="javascript:;" title="Ignore" rel="np"
+class="icon-ignore link-last"
+onclick="ReportPost.ignoreUser(this, 3604070, false); return false;">
+<span class="context-icon"></span>
+</a>
+</div>
+</div>
+</div>
+<a href="http://us.battle.net/wow/en/character/quelthalas/Mac%C3%A1vity/" itemprop="url" class="context-link wow-class-4">
+<span itemprop="name" class="poster-name">Macávity</span>
+</a>
+</div>
+<div class="user-character">
+<div class="character-desc">
+<span class="wow-class-4">
+100 Human Rogue
+</span>
+</div>
+<div class="guild" itemprop="affiliation">
+<a href="http://us.battle.net/wow/en/guild/quelthalas/Pergamino%20y%20Llave/">Pergamino y Llave</a>
+</div>
+<div class="achievements">9280</div>
+</div>
+</div>
+<span class="clear"><!-- --></span>
+</div>
+</div>
+<div class="post-content">
+<div class="post-detail" itemprop="text">
+<blockquote data-quote="30303318237" class="quote-public"><div><span class="bml-quote-date">08/16/2011 12:02 PM</span>Posted by <a href="index-page=4.html#78">Subrosian</a></div>Not only would it be completely worthless (random groups still wipe on Heroics, let alone raiding content), but it would mandate that Blizzard nerfs raids AND game mechanics.</blockquote><br/><br/>Why? If you can`t clear the content, tough luck. Get better. We`re giving the opportunity to improve your game. All I am proposing is a system that lets you bypass the jerks in trade that require a full achieve and absurd item level to enter already nerfed raid content. For all I care they can undo the nerfs along with the implemenatation of the system. Hell, I even just finished conceding that they can even make it so that no loot drops and I`ll still be happy with it. All I want is a CHANCE to EARN my achievements.<br/><br/><blockquote data-quote="30303318237" class="quote-public"><div><span class="bml-quote-date">08/16/2011 12:02 PM</span>Posted by <a href="index-page=4.html#78">Subrosian</a></div>Look at RDF - we've had changes to mechanics, difficulty, across the board nerfs, how you get to dungeons, how CC works, how healing works and now how threat works, to accommodate RDF groups. Blizzard has made content they promised was supposed to be challenging (Heroics) so watered-down that I can solo several of them to make it so groups can get through.</blockquote><br/><br/>Blizzard hasn`t made a single nerf to the Zul`s and RDF groups are clearing them while alt-tabbed to look at pets and mounts. It just takes a while to get used to an increased level of difficulty. It`s not the fault of the RDF, it just takes a little time for people to get used to more difficult content. If that`s a problem for you, you can abstain from its use. If you have a group you run with or a guild, this is not for you anyway.<br/><br/><br/>
+</div>
+</div>
+<div class="post-info">
+<div class="post-info-wrapper">
+<a class="post-index" href="#80">
+#80
+</a>
+<div class="date" data-tooltip="8/16/2011 12:10 PM PDT">8/16/2011</div>
+<meta itemprop="dateCreated" content="2011-08-16T12:10:59-07" />
+<meta itemprop="discussionUrl" content="/wow/en/forum/topic/2973023441" />
+</div>
+</div>
+<div class="post-options" data-solution-text="Unmark Solution" data-mark-solution-text="Mark As Solution" data-marked-as-solution-text="Marked As Solution">
+</div>
+</div>
+</div>
+		</div>
+
+		<div class="forum-actions forum-actions-bottom">
+			<div class="actions-right">
+
+
+
+
+
+
+
+
+
+
+<ul class="ui-pagination"><li class="cap-item"> <a class="page-prev" href="index-page=3.html" data-pagenum="3"><span>Prev</span></a>
+</li><li><a href="index-page=1.html" data-pagenum="1"><span>1</span></a></li><li class="expander"><span>…</span></li><li><a href="index-page=3.html" data-pagenum="3"><span>3</span></a></li><li class="current"><a href="index-page=4.html" data-pagenum="4"><span>4</span></a></li><li><a href="index-page=5.html" data-pagenum="5"><span>5</span></a></li><li class="expander"><span>…</span></li><li><a href="index-page=13.html" data-pagenum="13"><span>13</span></a></li><li class="cap-item"><a class="page-next" href="index-page=5.html" data-pagenum="5"><span>Next</span></a></li></ul>			</div>
+
+
+	<ol class="ui-breadcrumb">
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">World of Warcraft</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">Forums</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/#forum984269" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">Community</span>
+					</a>
+				</li>
+
+
+				<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="http://us.battle.net/wow/en/forum/984270/" rel="np" class="breadcrumb-arrow" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">General Discussion</span>
+					</a>
+				</li>
+
+
+				<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+					<a href="index.html" rel="np" itemprop="url">
+						<span class="breadcrumb-text" itemprop="name">How To Implement Cross-Realm Raid Finder</span>
+					</a>
+				</li>
+
+	</ol>
+
+		</div>
+
+	<div id="new-post" class="posting-status-message">
+			This topic is locked.
+	</div>
+	<span class="clear"><!-- --></span>
+
+	<div class="report-violation">
+		<div class="report-violation-inner">
+			<div class="report-violation-icon"></div>
+			<div class="report-violation-details">
+				
+
+
+	<h3 class="subheader-3" >Please report any Code of Conduct violations, including:</h3>
+
+				<p>Threats of violence. <strong>We take these seriously and will alert the proper authorities.</strong></p>
+				<p>Posts containing personal information about other players. <strong>This includes physical addresses, e-mail addresses, phone numbers, and inappropriate photos and/or videos.</strong></p>
+				<p>Harassing or discriminatory language. <strong>This will not be tolerated.</strong></p>
+				<p>	<a class="code-of-conduct" href="http://us.battle.net/en-us/community/conduct" target="_blank">Forums Code of Conduct</a>
+</p>
+			</div>
+	<span class="clear"><!-- --></span>
+		</div>
+	</div>
+
+	</div>
+
+	<div id="report-post" class="report-post type-forums">
+		<div id="report-table">
+
+			<div class="report-desc">
+			</div>
+			<div class="report-detail report-data">
+
+
+
+	<h3 class="subheader-3" >					Report Post #<span id="offensive-post-id"></span> written by <span id="offensive-post-author"></span>
+</h3>
+			</div>
+
+			<div class="report-desc">
+				Reason
+			</div>
+			<div class="report-detail">
+				<select id="report-reason" required="required">
+							<option value="SPAMMING">Spamming</option>
+							<option value="ILLEGAL">Illegal</option>
+							<option value="NOT_SPECIFIED">Not Specified</option>
+							<option value="OTHER">Other</option>
+							<option value="REAL_LIFE_THREATS">Real Life Threats</option>
+							<option value="ADVERTISING_STRADING">Advertising</option>
+							<option value="HARASSMENT">Harassment</option>
+							<option value="BAD_LINK">Bad Link</option>
+							<option value="TROLLING">Trolling</option>
+				</select>
+			</div>
+
+			<div class="report-desc">
+				Explain <small>(256 characters max)</small>
+			</div>
+			<div class="report-detail">
+				<textarea id="report-detail" class="post-editor" cols="78" rows="13" required="required" maxlength="256"></textarea>
+			</div>
+			<div class="report-submit-wrapper">
+				
+<a class="ui-button button1 report-submit" href="javascript:;"
+><span class="button-left"><span class="button-right">Submit</span></span></a>
+				<a class="cancel-report" href="javascript:;">Cancel</a>
+			</div>
+		</div>
+		<div id="report-success" class="report-success">
+			
+
+	<h3 class="header-3" >Reported!</h3>
+
+			[<a href='javascript:;' onclick='$("#report-post").hide()'>Close</a>]
+		</div>
+	</div>
+
+		<script type="text/javascript">
+		//<![CDATA[
+
+		$(function(){
+			ReportPost.initialize("#post-list", "forums");
+			ForumTopic.initialize("#post-list", 984270, 2973023441, 4,
+					170);
+
+		});
+		//]]>
+		</script>
+
+</div>
+</div>
+</div>
+<div class="nav-footer-wrapper">
+<div id="nav-client-footer" class="nav-client">
+<div class="footer-content footer-desktop grid-container"> <div class="nav-section support-feedback">
+<div class="nav-left">
+<div id="nav-feedback">
+<a id="nav-client-news" class="nav-item nav-a nav-item-btn" href="http://us.battle.net/support/" data-analytics="global-nav" data-analytics-placement="Footer - Support"><i class="nav-icon-24-blue nav-icon-question-circle"></i>Support</a>
+<a class="nav-item nav-a nav-item-btn" href="http://us.battle.net/feedback" data-analytics="global-nav" data-analytics-placement="Footer - Feedback"><i class="nav-icon-24-blue nav-icon-edit"></i>Feedback</a>
+</div>
+</div>
+<div class="nav-right">
+<div id="nav-client-region-select">
+<div class="dropdown dropup pull-right">
+<a class="dropdown-toggle nav-item" data-toggle="dropdown">
+<i class="nav-icon-24-blue nav-icon-globe"></i>Americas - English (US)<b class="caret"></b>
+</a>
+<div class="dropdown-menu" data-placement="top">
+<div class="arrow bottom"></div>
+<div id="nav-client-international-desktop">
+<div class="nav-international-container">
+<div class="dropdown-section nav-column-container">
+<div class="nav-column-50">
+<div id="select-regions" class="nav-box regions">
+<h3>Region</h3>
+<ul class="region-ul">
+<li class="region active current"><a class="nav-item select-region" href="javascript:;" data-target="us">Americas</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="eu">Europe</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="kr">Korea</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="tw">Taiwan</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="cn">China</a></li>
+<li class="region "><a class="nav-item select-region" href="javascript:;" data-target="sea">Southeast Asia</a></li>
+</ul>
+</div>
+</div>
+<div class="nav-column-50">
+<div id="select-language" class="nav-box languages">
+<h3>Language</h3>
+<div class="region region-languages active current" data-region="us">
+<ul class="region-ul">
+<li class="active current">
+<a class="nav-item select-language" href="http://us.battle.net/wow/en-us/forum/topic/2973023441?page=4" data-target="us" data-language="en-us">English (US)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/es-mx/forum/topic/2973023441?page=4" data-target="us" data-language="es-mx">Español (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/pt-br/forum/topic/2973023441?page=4" data-target="us" data-language="pt-br">Português (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://us.battle.net/wow/ja-jp/forum/topic/2973023441?page=4" data-target="us" data-language="ja-jp">日本</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="eu">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/de-de/forum/topic/2973023441?page=4" data-target="eu" data-language="de-de">Deutsch</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/en-gb/forum/topic/2973023441?page=4" data-target="eu" data-language="en-gb">English (EU)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/es-es/forum/topic/2973023441?page=4" data-target="eu" data-language="es-es">Español (EU)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/fr-fr/forum/topic/2973023441?page=4" data-target="eu" data-language="fr-fr">Français</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/it-it/forum/topic/2973023441?page=4" data-target="eu" data-language="it-it">Italiano</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/pl-pl/forum/topic/2973023441?page=4" data-target="eu" data-language="pl-pl">Polski</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/pt-br/forum/topic/2973023441?page=4" data-target="eu" data-language="pt-br">Português (AL)</a>
+</li>
+<li class="">
+<a class="nav-item select-language" href="http://eu.battle.net/wow/ru-ru/forum/topic/2973023441?page=4" data-target="eu" data-language="ru-ru">Русский</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="kr">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://kr.battle.net/wow/ko-kr/forum/topic/2973023441?page=4" data-target="kr" data-language="ko-kr">한국어</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="tw">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://tw.battle.net/wow/zh-tw/forum/topic/2973023441?page=4" data-target="tw" data-language="zh-tw">繁體中文</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="cn">
+<ul class="region-ul">
+<li class="">
+<a class="nav-item select-language" href="http://www.battlenet.com.cn/wow/forum/topic/2973023441?page=4" data-target="cn" data-language="zh-cn">简体中文</a>
+</li>
+</ul>
+</div>
+<div class="region region-languages " data-region="sea">
+<ul class="region-ul">
+<li class="active current">
+<a class="nav-item select-language" href="http://sea.battle.net/wow/en-us/forum/topic/2973023441?page=4" data-target="sea" data-language="en-us">English (US)</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="dropdown-section dropdown-well nav-box localeChange">
+<a id="nav-client-change-language-desktop" href="javascript:;" class="nav-lang-change nav-btn">Change</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-section">
+<div class="nav-left nav-logo-group">
+<div class="footer-logo nav-left">
+<a class="nav-item logo-link" href="http://us.blizzard.com/" data-analytics="global-nav" data-analytics-placement="Footer - Blizzard Logo"><img class="blizzard-logo" src="http://us.battle.net/wow/static/images/nav-client/blizzard.png?v=58-105" alt="" /></a>
+</div>
+<div class="footer-links nav-left">
+<a class="nav-item nav-a" href="http://jobs.blizzard.com/" data-analytics="global-nav" data-analytics-placement="Footer - Careers">Careers</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/about/" data-analytics="global-nav" data-analytics-placement="Footer - About">About</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/about/privacy.html" data-analytics="global-nav" data-analytics-placement="Footer - Privacy">Privacy</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://us.blizzard.com/company/legal/" data-analytics="global-nav" data-analytics-placement="Footer - Terms">Terms</a>
+<span>|</span>
+<a class="nav-item nav-a" href="http://dev.battle.net" data-analytics="global-nav" data-analytics-placement="Footer - API">API</a>
+<div class="copyright">©2016 Blizzard Entertainment, Inc.</div>
+<div class="nav-footer-icon-container">
+<ul class="nav-footer-icon-list">
+</ul>
+</div>
+</div>
+</div>
+<div class="nav-ratings">
+<div class="legal-rating">
+<a class="truste-link logo-link" href="http://privacy.truste.com/privacy-seal/Blizzard-Entertainment,-Inc-/validation?rid=08913c4b-117c-4f4c-9063-e68a2b929dc5" rel="nofollow" target="_blank">
+<img class="legal-image" src="http://us.battle.net/wow/static/images/legal/privacy-seal-truste.png?v=58-105"/>
+</a>
+</div>
+<div class="legal-rating">
+<div class="product-rating esrb-rating clearfix">
+<a href="http://www.esrb.org/ratings/ratings_guide.jsp" tabindex="1" rel="external" target="_blank">
+<img class="esrb-logo" src="http://us.battle.net/wow/static/images/legal/ratings/esrb/en/t.png?v=58-105"
+alt="ESRB Content Rating: T (Teen)" title=""
+width="65" height="97" />
+</a>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Depictions of blood or the mutilation of body parts.">Blood and Gore</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Depictions or dialogue involving vulgar antics, including “bathroom” humor.">Crude Humor</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Mild to moderate use of profanity.">Mild Language</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Mild provocative references or materials.">Suggestive Themes</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="The consumption of alcoholic beverages.">Use of Alcohol</span></span>
+<span class="esrb-descriptor"><span class="esrb-descriptor-label" title="Scenes involving aggressive conflict. May contain bloodless dismemberment.">Violence</span></span>
+<span class="esrb-disclaimer">Online Interactions Not Rated by the ESRB</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+//<![CDATA[
+var xsToken = '';
+var supportToken = '';
+var jsonSearchHandlerUrl = '//us.battle.net';
+var Msg = Msg || {};
+Msg.support = {
+ticketNew: 'Ticket {0} was created.',
+ticketStatus: 'Ticket {0}’s status changed to {1}.',
+ticketOpen: 'Open',
+ticketAnswered: 'Answered',
+ticketResolved: 'Resolved',
+ticketCanceled: 'Canceled',
+ticketArchived: 'Archived',
+ticketInfo: 'Need Info',
+ticketAll: 'View All Tickets'
+};
+Msg.cms = {
+requestError: 'Your request cannot be completed.',
+ignoreNot: 'Not ignoring this user',
+ignoreAlready: 'Already ignoring this user',
+stickyRequested: 'Sticky requested',
+stickyHasBeenRequested: 'You have already sent a sticky request for this topic.',
+postAdded: 'Post added to tracker',
+postRemoved: 'Post removed from tracker',
+userAdded: 'User added to tracker',
+userRemoved: 'User removed from tracker',
+validationError: 'A required field is incomplete',
+characterExceed: 'The post body exceeds XXXXXX characters.',
+searchFor: "Search for",
+searchTags: "Articles tagged:",
+characterAjaxError: "You may have become logged out. Please refresh the page and try again.",
+ilvl: "Level {0}",
+shortQuery: "Search requests must be at least three characters long.",
+editSuccess: "Success. Reload?",
+postDelete: "Are you sure you want to delete this post?",
+throttleError: "You must wait before you can post again."
+};
+Msg.bml= {
+bold: 'Bold',
+italics: 'Italics',
+underline: 'Underline',
+list: 'Unordered List',
+listItem: 'List Item',
+quote: 'Quote',
+quoteBy: 'Posted by {0}',
+unformat: 'Remove Formating',
+cleanup: 'Fix Linebreaks',
+code: 'Code Blocks',
+item: 'WoW Item',
+itemPrompt: 'Item ID:',
+url: 'URL',
+urlPrompt: 'URL Address:'
+};
+Msg.ui= {
+submit: 'Submit',
+cancel: 'Cancel',
+reset: 'Reset',
+viewInGallery: 'View in gallery',
+loading: 'Loading…',
+unexpectedError: 'An error has occurred',
+fansiteFind: 'Find this on…',
+fansiteFindType: 'Find {0} on…',
+fansiteNone: 'No fansites available.',
+flashErrorHeader: 'Adobe Flash Player must be installed to see this content.',
+flashErrorText: 'Download Adobe Flash Player',
+flashErrorUrl: 'http://get.adobe.com/flashplayer/',
+save: 'Save'
+};
+Msg.grammar= {
+colon: '{0}:',
+first: 'First',
+last: 'Last',
+ellipsis: '…'
+};
+Msg.fansite= {
+achievement: 'achievement',
+character: 'character',
+faction: 'faction',
+'class': 'class',
+object: 'object',
+talentcalc: 'talents',
+skill: 'profession',
+quest: 'quest',
+spell: 'spell',
+event: 'event',
+title: 'title',
+arena: 'arena team',
+guild: 'guild',
+zone: 'zone',
+item: 'item',
+race: 'race',
+npc: 'NPC',
+pet: 'pet'
+};
+Msg.search= {
+noResults: 'There are no results to display.',
+kb: 'Support',
+post: 'Forums',
+article: 'Blog Articles',
+static: 'General Content',
+wowcharacter: 'Characters',
+wowitem: 'Items',
+wowguild: 'Guilds',
+wowarenateam: 'Arena Teams',
+url: 'Suggested Links',
+friend: 'Friends',
+product: 'Marketplace Products',
+other: 'Other'
+};
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common/menu.js?v=58"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/js/wow.js?v=105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/js/nav-client/navbar-tk.min.js?v=105"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.nav.notifications.endpoint = "";
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/local-common/js/common/search-pane.js?v=58"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+Menu.initialize("/data/menu.json", { "colMax": 16 });
+Search.initialize('/wow/en/search/ta');
+});
+//]]>
+</script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/cms-overlay/js/build/cms.min.js?v=105"></script>
+<script type="text/javascript" src="http://us.battle.net/wow/static/forum-overlay/js/build/forum.min.js?v=105"></script>
+<script>
+//<![CDATA[
+(function() {
+var ga = document.createElement('script');
+var src = "https://ssl.google-analytics.com/ga.js";
+if ('http:' == document.location.protocol) {
+src = "http://www.google-analytics.com/ga.js";
+}
+ga.type = 'text/javascript';
+ga.setAttribute('async', 'true');
+ga.src = src;
+var s = document.getElementsByTagName('script');
+s = s[s.length-1];
+s.parentNode.insertBefore(ga, s.nextSibling);
+})();
+//]]>
+</script>
+</body>
+</html>
+<!-- Localized -->

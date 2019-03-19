@@ -1,0 +1,35 @@
+May 3, 2016, 1:09:45 PM
+
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/18300110500?page=5.",
+	referenced from "http://us.battle.net/wow/en/forum/topic/18300730473",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/13271497607",
+	referenced from "http://us.battle.net/wow/en/forum/topic/13346614975",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/10080357937))",
+	referenced from "http://us.battle.net/wow/en/forum/topic/11307960875",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/18300010026))",
+	referenced from "http://us.battle.net/wow/en/forum/topic/18132724884?page=3",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/1965843698",
+	referenced from "http://us.battle.net/wow/en/forum/topic/2456477569",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/2369883452.",
+	referenced from "http://us.battle.net/wow/en/forum/topic/2369924009?page=3",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/4015202822",
+	referenced from "http://us.battle.net/wow/en/forum/topic/4362522432",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/2228418866),",
+	referenced from "http://us.battle.net/wow/en/forum/topic/6080901860",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/13733703480.",
+	referenced from "http://us.battle.net/wow/en/forum/topic/13021962364?page=5",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/16542645050)",
+	referenced from "http://us.battle.net/wow/en/forum/topic/14729253538?page=6",
+	failed with error code -1100 (File does not exist.)
+ERROR: Download of "http://us.battle.net/wow/en/forum/topic/2029915572",
+	referenced from "http://us.battle.net/wow/en/forum/topic/4496790258",
+	failed with error code -1100 (File does not exist.)
